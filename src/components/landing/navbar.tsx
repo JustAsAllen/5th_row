@@ -33,40 +33,40 @@ export function Navbar() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-[#1b1e16]/80 backdrop-blur-xl" : "bg-transparent"
+          scrolled ? "bg-black/80 backdrop-blur-xl" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10">
+        <div className="mx-auto flex max-w-[1416px] items-center justify-between px-6 py-4 md:px-10">
+          {/* Logo — simple text, no badge */}
           <Link href="/" className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-[#D2FF00] font-display text-sm text-[#282C20]">
-              5R
-            </span>
-            <span className="font-display text-lg uppercase tracking-tight text-[#F4F4ED]">
+            <span className="font-display text-base uppercase tracking-tight text-[#F2F2F2]">
               5th_row
             </span>
           </Link>
 
+          {/* Nav — text links only, Dragonfly style */}
           <nav className="hidden items-center gap-8 lg:flex">
             {NAV_LINKS.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm uppercase tracking-widest text-[#B4B8A5] transition-colors hover:text-[#F4F4ED]"
+                className="text-sm text-[#F2F2F2]/70 transition-colors hover:text-[#F2F2F2]"
               >
                 {l.label}
               </Link>
             ))}
             <Link
               href="/control"
-              className="flex items-center gap-2 rounded-full bg-[#D2FF00] px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-[#282C20] transition-transform hover:scale-105"
+              className="font-mono text-xs uppercase tracking-[0.4px] text-[#D2FF00] transition-colors hover:text-[#D2FF00]/80"
             >
-              Open the Pocket
+              Open the Pocket →
             </Link>
           </nav>
 
+          {/* Mobile hamburger — minimal */}
           <button
             onClick={() => setOpen((o) => !o)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-[#3B3C38] text-[#F4F4ED] lg:hidden"
+            className="grid h-10 w-10 place-items-center text-[#F2F2F2] lg:hidden"
             aria-label="Toggle menu"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -74,12 +74,12 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile overlay menu */}
+      {/* Mobile overlay — full-screen black */}
       <motion.div
         initial={false}
         animate={open ? { y: 0 } : { y: "-100%" }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-0 z-40 flex flex-col justify-end bg-[#171a13] p-8"
+        className="fixed inset-0 z-40 flex flex-col justify-end bg-black p-8"
       >
         <nav className="flex flex-col gap-2">
           {NAV_LINKS.map((l, i) => (
@@ -92,7 +92,7 @@ export function Navbar() {
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block py-3 font-display text-4xl uppercase tracking-tight text-[#F4F4ED]"
+                className="block py-3 font-display text-4xl uppercase tracking-tight text-[#F2F2F2]"
               >
                 {l.label}
               </Link>
@@ -107,9 +107,9 @@ export function Navbar() {
             <Link
               href="/control"
               onClick={() => setOpen(false)}
-              className="inline-block rounded-full bg-[#D2FF00] px-8 py-4 font-semibold uppercase text-[#282C20]"
+              className="font-mono text-sm uppercase tracking-[0.4px] text-[#D2FF00]"
             >
-              Open the Pocket
+              Open the Pocket →
             </Link>
           </motion.div>
         </nav>

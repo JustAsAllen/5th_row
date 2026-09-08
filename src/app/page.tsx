@@ -10,7 +10,7 @@ import { SmoothScrollProvider } from "@/components/landing/smooth-scroll-provide
 export default function Home() {
   return (
     <SmoothScrollProvider>
-      <main className="overflow-x-clip bg-[#111112]">
+      <main className="overflow-x-clip bg-black">
         <Navbar />
         <Hero />
         <Marquee
@@ -27,15 +27,15 @@ export default function Home() {
         <Stack />
         <Marquee
           direction="right"
-          className="border-y-0 border-b border-t-0"
-          bg="bg-[#282C20]"
+          className="border-y border-white/[0.06]"
+          bg="bg-black"
           items={[
             { text: "clone", className: "text-[#D2FF00]" },
-            { text: "design", className: "text-[#F4F4ED]" },
+            { text: "design", className: "text-[#F2F2F2]" },
             { text: "build", className: "text-[#D2FF00]" },
-            { text: "test", className: "text-[#F4F4ED]" },
+            { text: "test", className: "text-[#F2F2F2]" },
             { text: "scale", className: "text-[#D2FF00]" },
-            { text: "ship", className: "text-[#F4F4ED]" },
+            { text: "ship", className: "text-[#F2F2F2]" },
           ]}
         />
         <SkillsHof />

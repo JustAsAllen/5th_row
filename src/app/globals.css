@@ -7,16 +7,17 @@
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), "Georgia", serif;
 }
 
 :root {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --background: #000000;
+  --foreground: #F2F2F2;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --background: #000000;
+  --foreground: #F2F2F2;
 }
 
 @keyframes marquee {
@@ -33,6 +34,11 @@
     scroll-behavior: auto;
   }
   body {
-    @apply bg-zinc-950 text-zinc-100;
+    @apply text-[#F2F2F2];
+    background: #000000;
+  }
+  ::selection {
+    background: #D2FF00;
+    color: #000000;
   }
 }

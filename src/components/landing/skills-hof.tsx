@@ -5,41 +5,50 @@ import { Copy, Palette, Briefcase, MonitorSmartphone, Database, Clapperboard, Wa
 
 export function SkillsHof() {
   return (
-    <section id="skills" className="bg-[#1b1e16] px-6 py-24 md:px-10 md:py-32">
-      <div className="mx-auto max-w-[1600px]">
+    <section id="skills" className="bg-black px-6 py-24 md:px-10 md:py-32">
+      <div className="mx-auto max-w-[1416px]">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#B4B8A5]">Hall of Fame</p>
-            <h2 className="mt-3 font-display text-4xl uppercase leading-none tracking-tight text-[#F4F4ED] md:text-7xl">
+            <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+              Hall of Fame
+            </span>
+            <h2 className="mt-3 font-display text-4xl uppercase leading-none tracking-[-0.02em] text-[#F2F2F2] md:text-7xl">
               Your <span className="text-[#D2FF00]">Skills</span>
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-[#B4B8A5]">
+          <p className="max-w-sm font-serif text-base font-light leading-relaxed text-[#F2F2F2]/60">
             Seven auto-triggering superpowers loaded into opencode. Named in one sentence, and
             they take over — cloning, designing, testing, and wiring backends.
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Skills list — editorial, numbered, like Dragonfly's writing list */}
+        <div className="mt-16 divide-y divide-white/[0.06]">
           {SKILLS.map((skill, i) => (
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl border border-[#3B3C38] bg-[#282C20] p-7 transition-all hover:-translate-y-1 hover:border-[#D2FF00]/60"
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="group flex items-start gap-6 py-8 transition-colors hover:bg-white/[0.01] -mx-6 px-6 md:-mx-10 md:px-10"
             >
-              <div className="flex items-center justify-between">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#1b1e16]">
-                  <skill.icon className="h-5 w-5 text-[#D2FF00]" />
-                </span>
-                <span className="font-mono text-xs text-[#B4B8A5]">{skill.code}</span>
+              {/* Number — mono */}
+              <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D] pt-1">
+                {skill.code}
+              </span>
+
+              <div className="flex-1">
+                <div className="flex items-center gap-3">
+                  <skill.icon className="h-4 w-4 text-[#D2FF00]" />
+                  <h3 className="font-display text-xl uppercase tracking-[-0.02em] text-[#F2F2F2]">
+                    {skill.name}
+                  </h3>
+                </div>
+                <p className="mt-2 max-w-2xl font-serif text-base font-light leading-relaxed text-[#F2F2F2]/50">
+                  {skill.desc}
+                </p>
               </div>
-              <h3 className="mt-6 font-display text-xl uppercase tracking-tight text-[#F4F4ED]">
-                {skill.name}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#B4B8A5]">{skill.desc}</p>
             </motion.div>
           ))}
         </div>

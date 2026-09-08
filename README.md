@@ -1,14 +1,21 @@
-# 🎒 5th_row — The Doraemon Magic Pocket
+# 5TH_ROW
+*the pocket.* a web-dev super-toolkit — stack, skills, prompts & patterns for shipping goated client sites.
 
-> **Your all-in-one web development super-toolkit.** Stack, skills, prompts, and patterns for building **gaand-faad client websites** with opencode. Everything you need is inside this pocket — just pull it out and use it.
+```
+  ▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄
+  █ 5TH ██  █ ROW ██  █ OPEN ██
+  ▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀
+```
+
+> Combine the **utility of a Doraemon pocket** with the **editorial minimalism of a top design studio.** Empty until you pull something out — then it's everything you need.
 
 ---
 
 ## TABLE OF CONTENTS
 
 1. [What Is This?](#1-what-is-this)
-2. [Your Complete Setup (Everything Installed)](#2-your-complete-setup)
-3. [How To Talk To opencode (Prompting Cheat Codes)](#3-how-to-talk-to-opencode)
+2. [Your Complete Setup](#2-your-complete-setup)
+3. [How To Talk To opencode](#3-how-to-talk-to-opencode)
 4. [MCP Servers — What They Do](#4-mcp-servers)
 5. [Skills Installed — Your Superpowers](#5-skills-installed)
 6. [The Premium Design Formula](#6-the-premium-design-formula)
@@ -27,11 +34,11 @@
 
 ## 1. What Is This?
 
-This folder is your **magic pocket / backup / super-toolbox**. You bring it anywhere and it contains:
+This folder is your **magic pocket / backup / super-toolbox.** You bring it anywhere and it contains:
 
 - A **battle-tested Next.js stack** (preconfigured, ready to code)
 - An **opencode setup** (MCP servers + skills) that makes AI builds look premium
-- **Prompting cheat codes** so you never freeze on "what do I say?"
+- **Prompting cheat codes** so you never freeze on *"what do I say?"*
 - **Design formulas** that make everything look expensive
 - **Client money-making workflow**
 
@@ -39,7 +46,7 @@ This folder is your **magic pocket / backup / super-toolbox**. You bring it anyw
 
 ---
 
-## 2. Your Complete Setup (Everything Installed)
+## 2. Your Complete Setup
 
 ### Stack (already installed in this project)
 ```
@@ -74,10 +81,10 @@ npx shadcn@latest add <component>   # add UI components
 vercel --prod      # deploy to live URL
 ```
 
-### The Control Center (MAIN PAGE)
-Root `/` redirects to the **Control Center** (`http://localhost:3000/control`) — a real dashboard with **click-to-run buttons** that execute commands (lint, typecheck, build, shadcn add, deploy, etc.) and show output in a live console. The step-by-step guide lives at `/toolkit`.
+### The Control Center
+`/` is the landing page. The **Control Center** lives at `/control` — a real dashboard with **click-to-run buttons** that execute commands (lint, typecheck, build, shadcn add, deploy) and show output in a live console. The step-by-step guide lives at `/toolkit`.
 
-> This project is the **5th_row toolkit itself**: the Control Center + guide + global Supabase backend files. Copy this folder (or its `src/lib/supabase/`) into every new client project.
+> This project is the **5th_row toolkit itself**: the landing page + Control Center + guide + global Supabase backend files. Copy this folder (or its `src/lib/supabase/`) into every new client project.
 
 ### Account Setup (All Free — Make These Now)
 | Service | Why | Link |
@@ -112,13 +119,13 @@ Open a new opencode session inside any project folder and just say:
 | Weak prompt | Strong prompt |
 |---|---|
 | "Make a website" | "Make a one-page site for a real estate agent: hero, services, properties grid, contact form" |
-| "Make it look nice" | "Premium dark theme, violet accent, rounded cards, smooth animations" |
-| "Add a button" | "Add a 'Get Started' button in the hero — violet with a glow on hover" |
+| "Make it look nice" | "Premium dark theme, lime accent, editorial serif body, smooth animations" |
+| "Add a button" | "Add a 'Get Started' link in the hero — text-only, lime, an arrow that slides on hover" |
 | "Fix the bug" | "The submit button does nothing when clicked — no error shows, fix it" |
 
 ### 3 Rules
 1. **One thing per message** when starting out
-2. **Say the style** you want (premium, clean, dark, colorful, minimal)
+2. **Say the style** you want (editorial, premium, clean, dark, minimal)
 3. **Send reference links** — I'll learn from them automatically
 
 ---
@@ -136,13 +143,13 @@ These are "superpowers" wired into opencode globally (`~/.config/opencode/openco
 | **Filesystem** | Reads files anywhere on your PC | "Find my design files" |
 | **Firecrawl** | Scrapes any website into clean text | "Learn the design of [URL]" |
 
-> To add GitHub/Vercel/Supabase MCP later (optional), logs into those accounts and I'll wire them up — they're free too.
+> To add GitHub/Vercel/Supabase MCP later (optional), log into those accounts and I'll wire them up — they're free too.
 
 ---
 
 ## 5. Skills Installed (ALL Trigger Keywords)
 
-Skills live in `~/.config/opencode/skills/`. They **auto-trigger** when you mention any of these keywords in your message.
+Skills live in `~/.config/opencode/skills/`. They **auto-trigger** when you mention any of these keywords.
 
 ### website-cloner
 > Analyzes any website's design (colors, typography, layout, spacing, components) and recreates it as premium modern code.
@@ -267,7 +274,7 @@ Skills live in `~/.config/opencode/skills/`. They **auto-trigger** when you ment
 ---
 
 ### rive-animation
-> Premium flat-vector animations rendered on WebGL canvas — smooth like 3D, virtually zero bundle cost. Paired with Lenis smooth scroll for scroll-driven effects (learned from landonorris.com).
+> Premium flat-vector animations rendered on WebGL canvas — smooth like 3D, virtually zero bundle cost. Paired with Lenis smooth scroll for scroll-driven effects.
 
 | Trigger Keywords |
 |-----------------|
@@ -279,7 +286,7 @@ Skills live in `~/.config/opencode/skills/`. They **auto-trigger** when you ment
 
 **Example prompts:**
 - "Make it look like a 3D model with Rive"
-- "Add a scroll-driven animated hero like landonorris.com"
+- "Add a scroll-driven animated hero"
 - "Give the button a subtle Rive hover animation"
 
 ---
@@ -307,50 +314,50 @@ Skills live in `~/.config/opencode/skills/`. They **auto-trigger** when you ment
 
 Use this whenever the user wants an expensive-looking site.
 
-### Colors
+### Editorial Color Palette
 ```
-Background: zinc-950 / zinc-900 (cards)
-Text: zinc-100 / zinc-400 (muted)
-Border: zinc-800
-Accent: violet-500 (or brand color) + glow shadows
-```
-
-### Typography
-```
-Hero: text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight
-Gradient text: bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-500
-Body: text-base md:text-lg text-zinc-400
+Background: #000000 (pure black void — no noise)
+Text:       #F2F2F2 (near-white)
+Muted:      #7D7D7D (labels, micro-text)
+Accent:     #D2FF00 (lime — the signature pop)
+Border:     rgba(255,255,255,0.06)
 ```
 
-### The Premium Page Structure
+### Typography (the secret weapon)
 ```
-1. Hero         → headline + gradient text + CTA + product preview
-2. Logos        → "Trusted by" grayscale strip
-3. Features     → 3-6 cards, icons, hover glow
-4. Highlight    → alternating image + text blocks
-5. Stats        → animated number counters
-6. Testimonials → 3 quote cards
-7. Pricing      → 3 tiers, middle = "Most Popular"
-8. FAQ          → accordion
-9. Final CTA    → big gradient band
-10. Footer      → 4 columns + socials
+Display: Archivo Black — giant uppercase, tracking-[-0.03em], leading-[0.82]
+Body:    Instrument Serif — elegant 24px+ light serif for sophistication
+Labels:  geist mono / mono — 10px uppercase tracking-[0.4px] micro-labels
+```
+
+### The Dragonfly-Editorial Rules
+```
+1. Extreme restraint — pure black, zero decoration, zero noise
+2. Serif body text — unexpected sophistication (24px light serif)
+3. Mono micro-labels — 10px monospace = technical/editorial tone
+4. Text-only CTAs — no buttons, just "Read the Pocket →" links
+5. 16-column discipline — 1416px max, 81px cols, 8px gaps
+6. Full-page vertical breathing — sections 100vh+
+7. Whole-page sections — not cards. Let content float on the void
 ```
 
 ### Premium Details Checklist
 ```
-[ ] Buttons: rounded-full, border, backdrop-blur, hover glow + scale
-[ ] Cards: rounded-2xl border-zinc-800 bg-zinc-900/60, hover:-translate-y-1
-[ ] Navbar: sticky top-0 backdrop-blur-xl bg-zinc-950/80 border-b
+[ ] Text-only CTAs: font-mono text-xs uppercase tracking-[0.4px] text-lime
+[ ] Serif body: font-serif text-[24px] font-light leading-[1.4]
+[ ] Mono labels: font-mono text-[10px] uppercase tracking-[0.4px] text-muted
+[ ] Grid overlay: linear-gradient(rgba(242,242,242,0.02)) 81px squares
 [ ] Micro-animations with framer-motion (fade-up, stagger)
 [ ] Generous spacing: py-24 md:py-32 per section
-[ ] Loading skeletons + toast feedback everywhere
+[ ] Selection: background-lime color-black
 ```
 
-### Example Button
+### Example Text CTA
 ```tsx
-<button className="rounded-full bg-violet-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]">
-  Get Started
-</button>
+<Link href="/control" className="group flex items-center gap-2 font-mono text-sm uppercase tracking-[0.4px] text-[#D2FF00] hover:text-[#D2FF00]/80">
+  Open the Pocket
+  <span className="transition-transform group-hover:translate-x-1">→</span>
+</Link>
 ```
 
 ---
@@ -362,13 +369,20 @@ Body: text-base md:text-lg text-zinc-400
 // src/app/page.tsx
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-        <h1 className="text-5xl md:text-7xl font-semibold tracking-tight">Big Headline</h1>
-        <p className="mt-6 text-lg text-zinc-400 max-w-2xl">Subheadline goes here…</p>
-        <button className="mt-8 rounded-full bg-violet-600 px-6 py-3 hover:scale-105 transition-all">
-          Get Started
-        </button>
+    <main className="min-h-screen bg-black text-[#F2F2F2]">
+      <section className="mx-auto max-w-[1416px] px-6 md:px-10 py-24 md:py-32">
+        <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+          Micro-label
+        </span>
+        <h1 className="mt-6 font-display text-6xl md:text-8xl uppercase tracking-[-0.03em]">
+          Big Headline
+        </h1>
+        <p className="mt-8 max-w-xl font-serif text-2xl font-light leading-relaxed text-[#F2F2F2]/80">
+          Elegant serif subheadline goes here…
+        </p>
+        <Link href="/control" className="group mt-12 flex items-center gap-2 font-mono text-sm uppercase tracking-[0.4px] text-[#D2FF00]">
+          Get Started <span className="transition-transform group-hover:translate-x-1">→</span>
+        </Link>
       </section>
     </main>
   );
@@ -393,7 +407,7 @@ function Counter() {
 
 ### Responsive (Mobile-First)
 ```tsx
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px">
 <div className="hidden md:block">Desktop only</div>
 <div className="md:hidden">Mobile only</div>
 <h1 className="text-3xl sm:text-4xl lg:text-6xl">Responsive Heading</h1>
@@ -434,7 +448,7 @@ export function Hero3D() {
           <Float speed={2} rotationIntensity={1}>
             <mesh>
               <torusKnotGeometry args={[1, 0.3, 128, 32]} />
-              <meshStandardMaterial color="#8b5cf6" metalness={0.8} roughness={0.2} />
+              <meshStandardMaterial color="#D2FF00" metalness={0.8} roughness={0.2} />
             </mesh>
           </Float>
           <Environment preset="city" />
@@ -478,14 +492,6 @@ import { motion } from "framer-motion";
 </motion.div>
 ```
 
-### Hover + Tap
-```tsx
-<motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-  className="bg-violet-600 px-6 py-3 rounded-xl text-white">
-  Click Me
-</motion.button>
-```
-
 ### Toasts (sonner)
 ```tsx
 import { toast } from "sonner";
@@ -516,12 +522,30 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 src/lib/supabase/
 ├── client.ts      → Browser client (use in "use client" components)
 ├── server.ts      → Server client (use in Server Components, API routes)
-├── middleware.ts  → Auth session refresh (auto-logged in via middleware.ts)
+├── middleware.ts  → Auth session refresh (auto-logged in)
 ├── use-user.ts    → Hook: get current logged-in user
 ├── use-auth.ts    → Hook: signUp(), signIn(), signOut() with toasts
 ├── use-storage.ts → Hook: upload files, get public URL, delete
 └── use-realtime.ts → Hook: live database updates in real-time
 ```
+
+### RLS Table Setup (MANDATORY — done for `contacts`)
+
+For any new table, enable RLS and add policies. Public forms should **insert** anonymously but only **authenticated** users (or the server client) should read:
+
+```sql
+alter table "public"."your_table" enable row level security;
+
+-- anonymous users + logged-in users can INSERT
+create policy "anon_can_insert" on public.your_table
+  for insert to anon, authenticated with check (true);
+
+-- only authenticated users can SELECT
+create policy "auth_can_read" on public.your_table
+  for select to authenticated using (true);
+```
+
+> Because RLS blocks anonymous reads, never chain `.select()` on a public insert (return=minimal only).
 
 ### Quick Usage (Copy-Paste Ready)
 
@@ -694,7 +718,7 @@ Monthly maintenance (updates, backups, support): $50 - $200/mo
 
 ### Prompts To Run With opencode While Building
 ```
-"Create a client site: [business], pages [list], style [premium/dark/color], primary color #hex"
+"Create a client site: [business], pages [list], style [editorial/premium/dark], primary color #hex"
 "Make a contact form that saves to Supabase and emails the client"
 "Deploy this to Vercel and give me the live URL"
 "Check it looks perfect on mobile + desktop"
@@ -729,10 +753,10 @@ Copy-paste these into opencode for instant results.
 
 ### Landing Page
 ```
-Create a premium landing page for [business/purpose].
-Sections: hero with gradient headline + CTA, trust logos, 3 feature cards,
-stats row, 3 testimonials, pricing (3 tiers, middle highlighted), FAQ, footer.
-Theme: dark zinc with violet accent. Mobile responsive. Smooth animations.
+Create a premium editorial landing page for [business/purpose].
+Sections: hero headline + serif subheadline, text-only CTAs, features list,
+stats row, writing list, footer. Theme: black with lime accent, serif body.
+Mobile responsive. Smooth animations.
 ```
 
 ### Website Clone/Learn
@@ -755,8 +779,8 @@ Supabase table and shows a success toast. Validate with zod. Mobile responsive.
 
 ### Premium Polish
 ```
-Make this page look premium: rounded cards, hover glows, gradient text,
-staggered entrance animations, sticky blurred navbar, generous spacing.
+Make this page look editorially premium: black void, serif body, mono
+micro-labels, text-only lime CTAs, thin hairlines, generous spacing.
 ```
 
 ### Deploy
@@ -768,7 +792,7 @@ Build the project, check for errors, then deploy to Vercel. Give me the live URL
 ```
 Build a complete client website for [business]. Pages: home, about, services,
 portfolio, contact. Home has hero, features, testimonials, CTA. Contact form
-saves to Supabase. Premium dark theme. Deploy it and give me the link.
+saves to Supabase. Premium editorial theme. Deploy it and give me the link.
 ```
 
 ---
@@ -785,7 +809,7 @@ Container needs height (`h-[450px]`) + `<Suspense>` + `'use client'`.
 Rebuild/restart dev server. Check `globals.css` imports `@import "tailwindcss"`.
 
 ### Form not submitting
-Check the API route path and `action` attr. Open DevTools console for errors. Query `console: errors` via Chrome DevTools MCP.
+Check the API route path and `action` attr. Open DevTools console for errors.
 
 ### Env vars missing after deploy
 Add them in Vercel dashboard (Settings → Environment Variables). Restart.
@@ -803,23 +827,30 @@ Ask opencode: *"Check performance with Chrome DevTools and optimize"* — images
 
 ## 16. Quick Reference Card
 
-### Color Palette
+### Editorial Color Palette
 ```
-Background:  bg-zinc-950   Cards:  bg-zinc-900
-Border:      border-zinc-800  Text:  text-zinc-100
-Muted:       text-zinc-400    Accent: violet-500/600
-Success:     emerald-500   Warning: amber-500   Error: red-500
+Background: #000000      Text:      #F2F2F2
+Muted:      #7D7D7D      Accent:    #D2FF00
+Border:     white/[0.06]  Selection: bg-lime text-black
+```
+
+### Fonts
+```
+Display: Archivo Black (uppercase, tracking-[-0.03em])
+Body:    Instrument Serif (24px+, light)
+Label:   geist mono (10px, uppercase, tracking-[0.4px])
 ```
 
 ### Spacing
 ```
-px-2 py-1   badges    |  px-4 py-2  buttons    |  px-6 py-3  cards
-px-8 py-6   sections  |  gap-2/4/6/8  grid gaps |  max-w-7xl  page width
+Text CTA: font-mono text-sm uppercase tracking-[0.4px] gap-2
+Sections: py-24 md:py-32 | Grid: gap-px on white/[0.06]
+Width:    max-w-[1416px] | Page: px-6 md:px-10
 ```
 
 ### Everything Happens Via opencode
 Don't memorize code — memorize prompts. When stuck, run:
-- "Add a premium hero section"
+- "Add an editorial hero section"
 - "Make it look like [URL]"
 - "Fix the mobile layout"
 - "Connect this form to Supabase"
@@ -828,6 +859,6 @@ Don't memorize code — memorize prompts. When stuck, run:
 
 ---
 
-### 🎒 Use this pocket. Ship great sites. Make that money. 💪
+### 🎒 Use this pocket. Ship goated sites. Make that money. 💪
 
 *Built as the Doraemon magic pocket backup — stack, skills, and prompts all in one place.*

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Archivo_Black, Inter } from "next/font/google";
+import { Geist_Mono, Instrument_Serif, Archivo_Black, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +10,12 @@ const geistMono = Geist_Mono({
 
 const archivoBlack = Archivo_Black({
   variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
   subsets: ["latin"],
   weight: "400",
 });
@@ -51,6 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         "dark h-full antialiased",
         geistMono.variable,
         archivoBlack.variable,
+        instrumentSerif.variable,
         inter.variable,
         "font-sans"
       )}

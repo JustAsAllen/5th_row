@@ -36,11 +36,11 @@ type LogEntry = {
 
 const CATEGORIES = ["Verify", "Setup", "Backend", "Deploy"] as const;
 
-const categoryMeta: Record<string, { icon: LucideIcon; color: string; ring: string }> = {
-  Verify: { icon: Activity, color: "text-emerald-400", ring: "hover:border-emerald-500/40" },
-  Setup: { icon: Wrench, color: "text-violet-400", ring: "hover:border-violet-500/40" },
-  Backend: { icon: Database, color: "text-blue-400", ring: "hover:border-blue-500/40" },
-  Deploy: { icon: Ship, color: "text-amber-400", ring: "hover:border-amber-500/40" },
+const categoryMeta: Record<string, { icon: LucideIcon; color: string }> = {
+  Verify: { icon: Activity, color: "text-[#D2FF00]" },
+  Setup: { icon: Wrench, color: "text-[#D2FF00]" },
+  Backend: { icon: Database, color: "text-[#D2FF00]" },
+  Deploy: { icon: Ship, color: "text-[#D2FF00]" },
 };
 
 export function ControlCenter() {
@@ -121,110 +121,114 @@ export function ControlCenter() {
   const clearLogs = () => setLogs([]);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-zinc-800/60 bg-zinc-950/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black text-[#F2F2F2]">
+      {/* Header — editorial, minimal */}
+      <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-black/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-[1416px] items-center justify-between px-6 py-5 md:px-10">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600 shadow-[0_0_20px_rgba(139,92,246,0.4)]">
-              <Terminal className="h-5 w-5 text-white" />
-            </div>
+            <Terminal className="h-5 w-5 text-[#D2FF00]" />
             <div>
-              <div className="text-sm font-bold tracking-tight text-white">5TH_ROW CONTROL</div>
-              <div className="text-xs text-zinc-500">Master Command Center</div>
+              <div className="font-display text-sm font-bold uppercase tracking-[-0.01em] text-[#F2F2F2]">
+                5TH_ROW CONTROL
+              </div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+                / master command center
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={refresh}
-              className="flex items-center gap-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 px-3 py-2 text-xs text-zinc-400 transition-all hover:border-zinc-700 hover:text-white"
+              className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.4px] text-[#7D7D7D] transition-colors hover:text-[#F2F2F2]"
             >
               <RefreshCw className="h-3.5 w-3.5" /> Refresh
             </button>
             <button
               onClick={clearLogs}
-              className="flex items-center gap-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 px-3 py-2 text-xs text-zinc-400 transition-all hover:border-red-500/40 hover:text-red-400"
+              className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.4px] text-[#7D7D7D] transition-colors hover:text-red-400"
             >
-              <Trash2 className="h-3.5 w-3.5" /> Clear Logs
+              <Trash2 className="h-3.5 w-3.5" /> Clear
             </button>
           </div>
         </div>
       </header>
 
-      {/* Status strip */}
-      <div className="border-b border-zinc-800/50 bg-zinc-900/20">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-6 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-sm">
+      {/* Status strip — mono terminal readout */}
+      <div className="border-b border-white/[0.06] bg-black">
+        <div className="mx-auto flex max-w-[1416px] flex-wrap items-center gap-6 px-6 py-4 md:px-10">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.4px]">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D2FF00] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#D2FF00]" />
             </span>
-            <span className="text-zinc-400">Control center <span className="text-white">online</span></span>
+            <span className="text-[#7D7D7D]">
+              status: <span className="text-[#D2FF00]">online</span>
+            </span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-zinc-500">
-            <Activity className="h-4 w-4 text-violet-400" />
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.4px] text-[#7D7D7D]">
+            <Activity className="h-4 w-4 text-[#D2FF00]" />
             <span>{actions.length} actions available</span>
           </div>
-          <div className="flex grow items-center gap-2">
-            <div className="ml-auto flex items-center gap-2">
-              <label className="flex items-center gap-2 text-sm text-zinc-500">
-                <FolderOpen className="h-4 w-4 text-zinc-500" />
-                Run in:
-              </label>
-              <input
-                value={dir}
-                onChange={(e) => setDir(e.target.value)}
-                placeholder="project root (leave empty for current directory)"
-                className="w-64 rounded-lg border border-zinc-800 bg-zinc-900/60 px-3 py-2 text-xs text-zinc-300 placeholder:text-zinc-600 focus:border-violet-500/40 focus:outline-none"
-              />
-            </div>
+          <div className="ml-auto flex items-center gap-2">
+            <label className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.4px] text-[#7D7D7D]">
+              <FolderOpen className="h-4 w-4 text-[#D2FF00]" />
+              run in:
+            </label>
+            <input
+              value={dir}
+              onChange={(e) => setDir(e.target.value)}
+              placeholder="project root"
+              className="w-56 rounded-none border-b border-white/[0.15] bg-transparent px-2 py-1 font-mono text-xs text-[#F2F2F2] placeholder:text-[#7D7D7D]/50 focus:border-[#D2FF00] focus:outline-none"
+            />
           </div>
         </div>
       </div>
 
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-5">
+      <main className="mx-auto max-w-[1416px] px-6 py-10 md:px-10">
+        <div className="grid gap-12 lg:grid-cols-5">
           {/* Action panel */}
           <div className="lg:col-span-3">
-            <h2 className="mb-4 text-lg font-semibold text-white">Available Actions</h2>
-            <div className="space-y-8">
+            <h2 className="mb-6 font-display text-2xl uppercase tracking-[-0.02em] text-[#F2F2F2]">
+              Available Actions
+            </h2>
+            <div className="space-y-10">
               {CATEGORIES.map((cat) => (
                 <div key={cat}>
-                  <div className="mb-3 flex items-center gap-2">
+                  <div className="mb-4 flex items-center gap-3">
                     {(() => {
                       const Icon = categoryMeta[cat].icon;
                       return <Icon className={`h-4 w-4 ${categoryMeta[cat].color}`} />;
                     })()}
-                    <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-400">{cat}</h3>
-                    <div className="h-px flex-1 bg-zinc-800/50" />
+                    <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.4px] text-[#7D7D7D]">
+                      {cat}
+                    </h3>
+                    <div className="h-px flex-1 bg-white/[0.06]" />
                   </div>
-                  <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="grid gap-px sm:grid-cols-2">
                     {actions
                       .filter((a) => a.category === cat)
                       .map((a) => (
-                        <motion.div
+                        <motion.button
                           key={a.id}
-                          whileHover={{ y: -2 }}
-                          className={`group rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-4 backdrop-blur-sm transition-all ${categoryMeta[cat].ring}`}
+                          whileHover={{ backgroundColor: "rgba(255,255,255,0.02)" }}
+                          onClick={() => run(a.id)}
+                          disabled={runningId !== null}
+                          className="group flex items-start justify-between gap-3 bg-black p-4 text-left disabled:opacity-60"
                         >
-                          <button
-                            onClick={() => run(a.id)}
-                            disabled={runningId !== null}
-                            className="flex w-full items-start justify-between gap-3 text-left disabled:opacity-60"
-                          >
-                            <div>
-                              <div className="text-sm font-semibold text-white">{a.name}</div>
-                              <div className="mt-1 text-xs leading-relaxed text-zinc-500">{a.description}</div>
+                          <div>
+                            <div className="text-sm text-[#F2F2F2]">{a.name}</div>
+                            <div className="mt-1 font-serif text-xs font-light leading-relaxed text-[#F2F2F2]/40">
+                              {a.description}
                             </div>
-                            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-800/50 transition-all group-hover:bg-zinc-700/50">
-                              {runningId === a.id ? (
-                                <Loader2 className="h-4 w-4 animate-spin text-violet-400" />
-                              ) : (
-                                <Play className={`h-4 w-4 ${categoryMeta[cat].color}`} />
-                              )}
-                            </div>
-                          </button>
-                        </motion.div>
+                          </div>
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center">
+                            {runningId === a.id ? (
+                              <Loader2 className="h-4 w-4 animate-spin text-[#D2FF00]" />
+                            ) : (
+                              <Play className={`h-4 w-4 text-[#7D7D7D] transition-colors group-hover:text-[#D2FF00]`} />
+                            )}
+                          </div>
+                        </motion.button>
                       ))}
                   </div>
                 </div>
@@ -235,14 +239,16 @@ export function ControlCenter() {
           {/* Log / console panel */}
           <div className="lg:col-span-2">
             <div className="sticky top-24">
-              <h2 className="mb-4 text-lg font-semibold text-white">Console Output</h2>
-              <div className="overflow-hidden rounded-2xl border border-zinc-800/80 bg-black/60">
-                <div className="flex items-center gap-2 border-b border-zinc-800/60 px-4 py-2.5">
-                  <div className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-amber-500/70" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-emerald-500/70" />
-                  <span className="ml-2 flex items-center gap-1.5 text-xs text-zinc-500">
-                    <Terminal className="h-3 w-3" /> 5th_row — bash
+              <h2 className="mb-6 font-display text-2xl uppercase tracking-[-0.02em] text-[#F2F2F2]">
+                Console Output
+              </h2>
+              <div className="overflow-hidden border border-white/[0.08] bg-black">
+                <div className="flex items-center gap-2 border-b border-white/[0.06] px-4 py-2.5">
+                  <div className="h-1.5 w-1.5 rounded-full bg-white/[0.15]" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-white/[0.15]" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-white/[0.15]" />
+                  <span className="ml-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+                    <Terminal className="h-3 w-3 text-[#D2FF00]" /> 5th_row — bash
                   </span>
                 </div>
                 <div
@@ -251,30 +257,27 @@ export function ControlCenter() {
                 >
                   {logs.length === 0 ? (
                     <div className="flex h-full flex-col items-center justify-center text-center">
-                      <Terminal className="mb-3 h-8 w-8 text-zinc-700" />
-                      <p className="text-zinc-600">No commands run yet.</p>
-                      <p className="mt-1 text-xs text-zinc-700">Click an action to execute it.</p>
+                      <Terminal className="mb-3 h-8 w-8 text-white/[0.1]" />
+                      <p className="font-mono text-xs text-[#7D7D7D]">$ no commands run yet</p>
+                      <p className="mt-1 font-mono text-xs text-[#7D7D7D]/50">click an action to execute</p>
                     </div>
                   ) : (
                     logs.map((log) => (
-                      <div
-                        key={log.id}
-                        className="rounded-lg border border-zinc-800/60 bg-zinc-900/40 p-3"
-                      >
+                      <div key={log.id} className="border-b border-white/[0.04] pb-3">
                         <div className="mb-1.5 flex items-center justify-between gap-2">
                           <div className="flex items-center gap-2">
                             {log.ok ? (
-                              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+                              <CheckCircle2 className="h-3.5 w-3.5 text-[#D2FF00]" />
                             ) : (
                               <XCircle className="h-3.5 w-3.5 text-red-400" />
                             )}
-                            <span className="text-xs font-medium text-zinc-300">{log.action}</span>
+                            <span className="text-xs text-[#F2F2F2]">{log.action}</span>
                           </div>
-                          <span className="text-[10px] text-zinc-600">
+                          <span className="text-[10px] text-[#7D7D7D]">
                             {log.time} · {log.ms}ms
                           </span>
                         </div>
-                        <pre className="max-h-40 overflow-y-auto whitespace-pre-wrap break-words text-zinc-400">
+                        <pre className="max-h-40 overflow-y-auto whitespace-pre-wrap break-words text-[#7D7D7D]">
                           {log.output || "(no output)"}
                         </pre>
                       </div>
