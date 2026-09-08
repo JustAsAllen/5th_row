@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Geist_Mono, Archivo_Black, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const archivoBlack = Archivo_Black({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -36,7 +47,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={cn("dark h-full antialiased", geistMono.variable, "font-sans")}
+      className={cn(
+        "dark h-full antialiased",
+        geistMono.variable,
+        archivoBlack.variable,
+        inter.variable,
+        "font-sans"
+      )}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
