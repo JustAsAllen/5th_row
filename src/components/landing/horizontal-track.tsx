@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Terminal, BookOpen, Database, Sparkles, DollarSign, Rocket } from "lucide-react";
+import { PixGlyph } from "./pix-glyph";
 
 export function HorizontalTrack() {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,11 +19,13 @@ export function HorizontalTrack() {
       <div className="sticky top-0 flex h-[100svh] flex-col justify-center overflow-hidden">
         {/* Section label — mono micro-label */}
         <div className="pointer-events-none absolute left-6 top-8 z-10 md:left-10">
-          <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+          <span className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+            <PixGlyph type="dottule" className="h-1 w-7 text-[#D2FF00]/50" />
             What&apos;s inside
           </span>
-          <h2 className="mt-2 font-display text-3xl uppercase tracking-[-0.02em] text-[#F2F2F2] md:text-5xl">
+          <h2 className="mt-2 flex items-center gap-3 font-display text-3xl uppercase tracking-[-0.02em] text-[#F2F2F2] md:text-5xl">
             The <span className="text-[#D2FF00]">Pocket</span>
+            <PixGlyph type="ticks" className="hidden h-5 w-2 text-[#7D7D7D]/50 md:block" />
           </h2>
         </div>
 
@@ -32,12 +35,16 @@ export function HorizontalTrack() {
               key={card.title}
               className="group relative flex w-[78vw] shrink-0 flex-col justify-between bg-black p-8 transition-colors hover:bg-white/[0.02] md:w-[44vw] lg:w-[34vw] lg:p-10"
             >
+              {/* ASCII corner marks */}
+              <PixGlyph type="corners" className="absolute left-4 top-4 h-3 w-3 text-[#7D7D7D]/30" />
               <div className="flex items-start justify-between">
-                <span className="grid h-10 w-10 place-items-center">
+                <span className="relative grid h-10 w-10 place-items-center">
                   <card.icon className="h-5 w-5 text-[#D2FF00]" />
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+                <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.4px] text-[#D2FF00]/80">
+                  <PixGlyph type="bracket-l" className="h-3 w-[5px] text-[#7D7D7D]/60" />
                   {card.tag}
+                  <PixGlyph type="bracket-r" className="h-3 w-[5px] text-[#7D7D7D]/60" />
                 </span>
               </div>
 
@@ -64,16 +71,25 @@ export function HorizontalTrack() {
           {/* end cap */}
           <div className="flex w-[70vw] shrink-0 items-center justify-center md:w-[44vw]">
             <div className="text-center">
-              <p className="font-display text-3xl uppercase leading-none tracking-[-0.02em] text-[#F2F2F2] md:text-6xl">
+              <div className="flex items-center justify-center gap-3 text-[#7D7D7D]/60">
+                <PixGlyph type="bracket-l" className="h-5 w-[7px]" />
+                <PixGlyph type="dottule" className="h-1 w-10" />
+                <PixGlyph type="diamond" className="h-2 w-2 text-[#D2FF00]" />
+                <PixGlyph type="dottule" className="h-1 w-10" />
+                <PixGlyph type="bracket-r" className="h-5 w-[7px]" />
+              </div>
+              <p className="mt-6 font-display text-3xl uppercase leading-none tracking-[-0.02em] text-[#F2F2F2] md:text-6xl">
                 Ready to
                 <br />
                 <span className="text-[#D2FF00]">ship?</span>
               </p>
               <Link
                 href="/control"
-                className="mt-8 inline-block font-mono text-sm uppercase tracking-[0.4px] text-[#D2FF00] transition-colors hover:text-[#D2FF00]/80"
+                className="mt-8 inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.4px] text-[#D2FF00] transition-colors hover:text-[#D2FF00]/80"
               >
+                <PixGlyph type="bracket-l" className="h-3 w-[5px] text-[#D2FF00]" />
                 Open the Pocket →
+                <PixGlyph type="bracket-r" className="h-3 w-[5px] text-[#D2FF00]" />
               </Link>
             </div>
           </div>

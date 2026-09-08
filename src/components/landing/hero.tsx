@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { RiveScene } from "./rive-scene";
+import { PixGlyph } from "./pix-glyph";
 
 export function Hero() {
   return (
@@ -25,6 +26,34 @@ export function Hero() {
         }}
       />
 
+      {/* Scattered pixel glyphs — Dragonfly signature marks */}
+      <div className="pointer-events-none absolute inset-0">
+        <PixGlyph
+          type="corners"
+          className="absolute right-6 top-24 h-4 w-4 text-[#7D7D7D]/40 md:right-10"
+        />
+        <PixGlyph
+          type="plus"
+          className="absolute left-8 top-1/3 hidden h-2 w-2 text-[#7D7D7D]/30 md:block"
+        />
+        <PixGlyph
+          type="plus"
+          className="absolute right-24 top-1/2 hidden h-2 w-2 text-[#7D7D7D]/30 lg:block"
+        />
+        <PixGlyph
+          type="diamond"
+          className="absolute bottom-40 left-1/2 hidden h-3 w-3 text-[#D2FF00]/30 lg:block"
+        />
+        <PixGlyph
+          type="ticks"
+          className="absolute left-8 top-1/2 hidden h-5 w-2 text-[#7D7D7D]/30 lg:block"
+        />
+        <PixGlyph
+          type="ticks"
+          className="absolute right-8 top-40 hidden h-5 w-2 text-[#D2FF00]/30 lg:block"
+        />
+      </div>
+
       <div className="relative z-10 mx-auto flex w-full max-w-[1416px] flex-1 flex-col justify-center px-6 md:px-10">
         {/* Mono micro-label */}
         <motion.div
@@ -35,6 +64,7 @@ export function Hero() {
           <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
             EST. 2024 — THE ALL-IN-ONE WEB DEV TOOLKIT
           </span>
+          <PixGlyph type="dottule" className="ml-2 h-1 w-7 text-[#D2FF00]/50" />
         </motion.div>
 
         {/* Giant display title — Archivo Black, tight tracking */}
@@ -48,6 +78,22 @@ export function Hero() {
           <br />
           <span className="text-[#D2FF00]">ROW</span>
         </motion.h1>
+
+        {/* Bracket marks framing the title */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="mt-4 flex items-center gap-3 text-[#7D7D7D]"
+        >
+          <PixGlyph type="bracket-l" className="h-4 w-[6px] text-[#7D7D7D]" />
+          <PixGlyph type="dottule" className="h-1 w-7 text-[#7D7D7D]/50" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+            the pocket
+          </span>
+          <PixGlyph type="dottule" className="hidden h-1 w-7 rotate-180 text-[#D2FF00]/50 sm:block" />
+          <PixGlyph type="bracket-r" className="h-4 w-[6px] text-[#D2FF00]/70" />
+        </motion.div>
 
         {/* Serif body — Dragonfly's signature move */}
         <motion.p
@@ -71,8 +117,10 @@ export function Hero() {
             href="/control"
             className="group flex items-center gap-2 font-mono text-sm uppercase tracking-[0.4px] text-[#D2FF00] transition-colors hover:text-[#D2FF00]/80"
           >
+            <PixGlyph type="bracket-l" className="h-3 w-[5px] text-[#D2FF00]" />
             Open the Pocket
             <span className="transition-transform group-hover:translate-x-1">→</span>
+            <PixGlyph type="bracket-r" className="hidden h-3 w-[5px] text-[#D2FF00] sm:block" />
           </Link>
           <Link
             href="/toolkit"

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { PixGlyph } from "./pix-glyph";
 
 const NAV_LINKS = [
   { label: "Control Center", href: "/control" },
@@ -37,11 +38,16 @@ export function Navbar() {
         }`}
       >
         <div className="mx-auto flex max-w-[1416px] items-center justify-between px-6 py-4 md:px-10">
-          {/* Logo — simple text, no badge */}
-          <Link href="/" className="flex items-center gap-3">
+          {/* Logo — text + pixel brackets, Dragonfly style */}
+          <Link href="/" className="group flex items-center gap-2.5">
+            <PixGlyph
+              type="bracket-l"
+              className="h-3.5 w-[5px] text-[#7D7D7D] transition-colors group-hover:text-[#D2FF00]"
+            />
             <span className="font-display text-base uppercase tracking-tight text-[#F2F2F2]">
               5th_row
             </span>
+            <PixGlyph type="plus" className="h-2 w-2 text-[#D2FF00]/60" />
           </Link>
 
           {/* Nav — text links only, Dragonfly style */}
@@ -50,15 +56,20 @@ export function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm text-[#F2F2F2]/70 transition-colors hover:text-[#F2F2F2]"
+                className="group flex items-center gap-2 text-sm text-[#F2F2F2]/70 transition-colors hover:text-[#F2F2F2]"
               >
+                <PixGlyph
+                  type="diamond"
+                  className="hidden h-2 w-2 text-[#D2FF00]/0 transition-colors group-hover:text-[#D2FF00] xl:block"
+                />
                 {l.label}
               </Link>
             ))}
             <Link
               href="/control"
-              className="font-mono text-xs uppercase tracking-[0.4px] text-[#D2FF00] transition-colors hover:text-[#D2FF00]/80"
+              className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.4px] text-[#D2FF00] transition-colors hover:text-[#D2FF00]/80"
             >
+              <PixGlyph type="ticks" className="h-5 w-2 text-[#D2FF00]" />
               Open the Pocket →
             </Link>
           </nav>
@@ -81,7 +92,22 @@ export function Navbar() {
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className="fixed inset-0 z-40 flex flex-col justify-end bg-black p-8"
       >
-        <nav className="flex flex-col gap-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <PixGlyph type="bracket-l" className="h-4 w-[6px] text-[#D2FF00]" />
+            <span className="font-display text-base uppercase tracking-tight text-[#F2F2F2]">
+              5th_row
+            </span>
+          </div>
+          <button
+            onClick={() => setOpen(false)}
+            className="grid h-10 w-10 place-items-center text-[#F2F2F2]"
+            aria-label="Close menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+        <nav className="mt-16 flex flex-col gap-2">
           {NAV_LINKS.map((l, i) => (
             <motion.div
               key={l.href}

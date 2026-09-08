@@ -2,24 +2,43 @@
 
 import { motion } from "framer-motion";
 import { Copy, Palette, Briefcase, MonitorSmartphone, Database, Clapperboard, Wand2 } from "lucide-react";
+import { PixGlyph } from "./pix-glyph";
 
 export function SkillsHof() {
   return (
-    <section id="skills" className="bg-black px-6 py-24 md:px-10 md:py-32">
-      <div className="mx-auto max-w-[1416px]">
+    <section id="skills" className="relative overflow-hidden bg-black px-6 py-24 md:px-10 md:py-32">
+      <div className="pointer-events-none absolute inset-0">
+        <PixGlyph type="corners" className="absolute left-6 top-14 h-4 w-4 text-[#7D7D7D]/25 md:left-10" />
+        <PixGlyph type="ticks" className="absolute right-8 top-1/2 hidden h-5 w-2 text-[#D2FF00]/30 md:block" />
+        <PixGlyph type="plus" className="absolute bottom-20 left-1/3 hidden h-2 w-2 text-[#7D7D7D]/25 lg:block" />
+      </div>
+      <div className="relative mx-auto max-w-[1416px]">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+            <span className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+              <PixGlyph type="bracket-l" className="h-3 w-[5px] text-[#D2FF00]/70" />
               Hall of Fame
+              <PixGlyph type="bracket-r" className="h-3 w-[5px] text-[#D2FF00]/70" />
             </span>
             <h2 className="mt-3 font-display text-4xl uppercase leading-none tracking-[-0.02em] text-[#F2F2F2] md:text-7xl">
               Your <span className="text-[#D2FF00]">Skills</span>
             </h2>
           </div>
-          <p className="max-w-sm font-serif text-base font-light leading-relaxed text-[#F2F2F2]/60">
+          <p className="flex items-start gap-3 font-serif text-base font-light leading-relaxed text-[#F2F2F2]/60">
+            <PixGlyph type="ticks" className="mt-1.5 h-5 w-2 shrink-0 text-[#D2FF00]/40" />
             Seven auto-triggering superpowers loaded into opencode. Named in one sentence, and
             they take over — cloning, designing, testing, and wiring backends.
           </p>
+        </div>
+
+        {/* ASCII art rule — block pixels */}
+        <div className="mt-14 flex items-center gap-3 text-[#7D7D7D]/40">
+          <PixGlyph type="bracket-l" className="h-4 w-[6px]" />
+          <PixGlyph type="dottule" className="h-1 w-16" />
+          <PixGlyph type="bracket-r" className="h-4 w-[6px]" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#D2FF00]/50">
+            ░░░░░░
+          </span>
         </div>
 
         {/* Skills list — editorial, numbered, like Dragonfly's writing list */}
@@ -33,17 +52,21 @@ export function SkillsHof() {
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="group flex items-start gap-6 py-8 transition-colors hover:bg-white/[0.01] -mx-6 px-6 md:-mx-10 md:px-10"
             >
-              {/* Number — mono */}
-              <span className="font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D] pt-1">
+              {/* Number — mono, framed */}
+              <span className="flex items-center gap-2 pt-1 font-mono text-[10px] uppercase tracking-[0.4px] text-[#D2FF00]/80">
+                <PixGlyph type="bracket-l" className="h-3 w-[5px] text-[#7D7D7D]/60" />
                 {skill.code}
+                <PixGlyph type="bracket-r" className="h-3 w-[5px] text-[#7D7D7D]/60" />
               </span>
 
               <div className="flex-1">
                 <div className="flex items-center gap-3">
-                  <skill.icon className="h-4 w-4 text-[#D2FF00]" />
+                  <PixGlyph type="diamond" className="h-2 w-2 text-[#D2FF00]" />
+                  <skill.icon className="h-4 w-4 text-[#F2F2F2]/70" />
                   <h3 className="font-display text-xl uppercase tracking-[-0.02em] text-[#F2F2F2]">
                     {skill.name}
                   </h3>
+                  <PixGlyph type="dottule" className="hidden h-1 w-7 opacity-0 transition-opacity group-hover:opacity-100 md:block" />
                 </div>
                 <p className="mt-2 max-w-2xl font-serif text-base font-light leading-relaxed text-[#F2F2F2]/50">
                   {skill.desc}

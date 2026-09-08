@@ -17,6 +17,7 @@ import {
   FolderOpen,
   type LucideIcon,
 } from "lucide-react";
+import { PixGlyph } from "@/components/landing/pix-glyph";
 
 type Action = {
   id: string;
@@ -126,7 +127,11 @@ export function ControlCenter() {
       <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-black/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-[1416px] items-center justify-between px-6 py-5 md:px-10">
           <div className="flex items-center gap-3">
-            <Terminal className="h-5 w-5 text-[#D2FF00]" />
+            <div className="flex items-center gap-2.5">
+              <PixGlyph type="bracket-l" className="h-4 w-[6px] text-[#D2FF00]" />
+              <Terminal className="h-5 w-5 text-[#D2FF00]" />
+              <PixGlyph type="bracket-r" className="h-4 w-[6px] text-[#D2FF00]" />
+            </div>
             <div>
               <div className="font-display text-sm font-bold uppercase tracking-[-0.01em] text-[#F2F2F2]">
                 5TH_ROW CONTROL
@@ -136,7 +141,8 @@ export function ControlCenter() {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-5">
+            <PixGlyph type="ticks" className="hidden h-5 w-2 text-[#D2FF00]/40 md:block" />
             <button
               onClick={refresh}
               className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.4px] text-[#7D7D7D] transition-colors hover:text-[#F2F2F2]"
@@ -154,7 +160,8 @@ export function ControlCenter() {
       </header>
 
       {/* Status strip — mono terminal readout */}
-      <div className="border-b border-white/[0.06] bg-black">
+      <div className="relative border-b border-white/[0.06] bg-black">
+        <PixGlyph type="dottule" className="absolute left-0 top-0 h-px w-full text-[#D2FF00]/20" />
         <div className="mx-auto flex max-w-[1416px] flex-wrap items-center gap-6 px-6 py-4 md:px-10">
           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.4px]">
             <span className="relative flex h-2 w-2">
@@ -166,20 +173,22 @@ export function ControlCenter() {
             </span>
           </div>
           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.4px] text-[#7D7D7D]">
+            <PixGlyph type="diamond" className="h-2 w-2 text-[#D2FF00]" />
             <Activity className="h-4 w-4 text-[#D2FF00]" />
             <span>{actions.length} actions available</span>
           </div>
           <div className="ml-auto flex items-center gap-2">
             <label className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.4px] text-[#7D7D7D]">
-              <FolderOpen className="h-4 w-4 text-[#D2FF00]" />
-              run in:
+              <FolderOpen className="h-4 w-4 text-[#D2FF00]" /> run in:
             </label>
+            <PixGlyph type="bracket-l" className="h-3 w-[5px] text-[#7D7D7D]" />
             <input
               value={dir}
               onChange={(e) => setDir(e.target.value)}
               placeholder="project root"
               className="w-56 rounded-none border-b border-white/[0.15] bg-transparent px-2 py-1 font-mono text-xs text-[#F2F2F2] placeholder:text-[#7D7D7D]/50 focus:border-[#D2FF00] focus:outline-none"
             />
+            <PixGlyph type="bracket-r" className="h-3 w-[5px] text-[#7D7D7D]" />
           </div>
         </div>
       </div>
@@ -188,13 +197,18 @@ export function ControlCenter() {
         <div className="grid gap-12 lg:grid-cols-5">
           {/* Action panel */}
           <div className="lg:col-span-3">
-            <h2 className="mb-6 font-display text-2xl uppercase tracking-[-0.02em] text-[#F2F2F2]">
-              Available Actions
-            </h2>
+            <div className="mb-6 flex items-center gap-3">
+              <PixGlyph type="ticks" className="h-5 w-2 text-[#D2FF00]" />
+              <h2 className="font-display text-2xl uppercase tracking-[-0.02em] text-[#F2F2F2]">
+                Available Actions
+              </h2>
+              <PixGlyph type="dottule" className="h-1 w-10 text-[#D2FF00]/50" />
+            </div>
             <div className="space-y-10">
               {CATEGORIES.map((cat) => (
                 <div key={cat}>
                   <div className="mb-4 flex items-center gap-3">
+                    <PixGlyph type="bracket-l" className="h-3 w-[5px] text-[#7D7D7D]/60" />
                     {(() => {
                       const Icon = categoryMeta[cat].icon;
                       return <Icon className={`h-4 w-4 ${categoryMeta[cat].color}`} />;
@@ -203,6 +217,7 @@ export function ControlCenter() {
                       {cat}
                     </h3>
                     <div className="h-px flex-1 bg-white/[0.06]" />
+                    <PixGlyph type="bracket-r" className="h-3 w-[5px] text-[#7D7D7D]/60" />
                   </div>
                   <div className="grid gap-px sm:grid-cols-2">
                     {actions
@@ -213,10 +228,17 @@ export function ControlCenter() {
                           whileHover={{ backgroundColor: "rgba(255,255,255,0.02)" }}
                           onClick={() => run(a.id)}
                           disabled={runningId !== null}
-                          className="group flex items-start justify-between gap-3 bg-black p-4 text-left disabled:opacity-60"
+                          className="group relative flex items-start justify-between gap-3 bg-black p-4 text-left disabled:opacity-60"
                         >
+                          <PixGlyph
+                            type="corners"
+                            className="absolute right-2 top-2 h-3 w-3 text-[#7D7D7D]/20 transition-colors group-hover:text-[#D2FF00]/40"
+                          />
                           <div>
-                            <div className="text-sm text-[#F2F2F2]">{a.name}</div>
+                            <div className="flex items-center gap-2 text-sm text-[#F2F2F2]">
+                              <PixGlyph type="diamond" className="hidden h-2 w-2 text-[#D2FF00]/0 transition-colors group-hover:text-[#D2FF00] sm:block" />
+                              {a.name}
+                            </div>
                             <div className="mt-1 font-serif text-xs font-light leading-relaxed text-[#F2F2F2]/40">
                               {a.description}
                             </div>
@@ -239,16 +261,22 @@ export function ControlCenter() {
           {/* Log / console panel */}
           <div className="lg:col-span-2">
             <div className="sticky top-24">
-              <h2 className="mb-6 font-display text-2xl uppercase tracking-[-0.02em] text-[#F2F2F2]">
-                Console Output
-              </h2>
+              <div className="mb-6 flex items-center gap-3">
+                <PixGlyph type="dottule" className="h-1 w-10 text-[#D2FF00]/40" />
+                <h2 className="font-display text-2xl uppercase tracking-[-0.02em] text-[#F2F2F2]">
+                  Console Output
+                </h2>
+                <PixGlyph type="bracket-r" className="h-4 w-[6px] text-[#7D7D7D]" />
+              </div>
               <div className="overflow-hidden border border-white/[0.08] bg-black">
                 <div className="flex items-center gap-2 border-b border-white/[0.06] px-4 py-2.5">
                   <div className="h-1.5 w-1.5 rounded-full bg-white/[0.15]" />
                   <div className="h-1.5 w-1.5 rounded-full bg-white/[0.15]" />
                   <div className="h-1.5 w-1.5 rounded-full bg-white/[0.15]" />
                   <span className="ml-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.4px] text-[#7D7D7D]">
+                    <PixGlyph type="bracket-l" className="h-3 w-[5px] text-[#D2FF00]" />
                     <Terminal className="h-3 w-3 text-[#D2FF00]" /> 5th_row — bash
+                    <PixGlyph type="bracket-r" className="h-3 w-[5px] text-[#D2FF00]" />
                   </span>
                 </div>
                 <div
@@ -257,9 +285,16 @@ export function ControlCenter() {
                 >
                   {logs.length === 0 ? (
                     <div className="flex h-full flex-col items-center justify-center text-center">
-                      <Terminal className="mb-3 h-8 w-8 text-white/[0.1]" />
+                      <div className="mb-3 flex items-center gap-2 text-white/[0.1]">
+                        <PixGlyph type="bracket-l" className="h-5 w-[7px] text-[#D2FF00]/30" />
+                        <Terminal className="h-8 w-8" />
+                        <PixGlyph type="bracket-r" className="h-5 w-[7px] text-[#D2FF00]/30" />
+                      </div>
                       <p className="font-mono text-xs text-[#7D7D7D]">$ no commands run yet</p>
-                      <p className="mt-1 font-mono text-xs text-[#7D7D7D]/50">click an action to execute</p>
+                      <p className="mt-1 flex items-center gap-2 font-mono text-xs text-[#7D7D7D]/50">
+                        <PixGlyph type="plus" className="h-2 w-2 text-[#D2FF00]/40" />
+                        click an action to execute
+                      </p>
                     </div>
                   ) : (
                     logs.map((log) => (
@@ -271,11 +306,15 @@ export function ControlCenter() {
                             ) : (
                               <XCircle className="h-3.5 w-3.5 text-red-400" />
                             )}
-                            <span className="text-xs text-[#F2F2F2]">{log.action}</span>
+                            <span className="flex items-center gap-1.5 text-xs text-[#F2F2F2]">
+                              <PixGlyph type="bracket-l" className="h-2.5 w-[4px] text-[#7D7D7D]/70" />
+                              {log.action}
+                              <PixGlyph type="bracket-r" className="h-2.5 w-[4px] text-[#7D7D7D]/70" />
+                            </span>
+                            <span className="text-[10px] text-[#7D7D7D]">
+                              {log.time} · {log.ms}ms
+                            </span>
                           </div>
-                          <span className="text-[10px] text-[#7D7D7D]">
-                            {log.time} · {log.ms}ms
-                          </span>
                         </div>
                         <pre className="max-h-40 overflow-y-auto whitespace-pre-wrap break-words text-[#7D7D7D]">
                           {log.output || "(no output)"}
