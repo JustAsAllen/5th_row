@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#27272a" stroke-width="2"/>
+  <circle cx="600" cy="315" r="190" fill="url(#glow)" opacity="0.15"/>
+  <rect x="455" y="165" width="290" height="90" rx="22" fill="url(#glow)"/>
+  <text x="600" y="222" font-family="ui-monospace, monospace" font-size="42" font-weight="bold" fill="#ffffff" text-anchor="middle">5TH_ROW</text>
+  <text x="600" y="340" font-family="ui-sans-serif, system-ui, sans-serif" font-size="30" fill="#a1a1aa" text-anchor="middle">Master Command Center</text>
+  <text x="600" y="400" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" fill="#71717a" text-anchor="middle">Zero-to-deploy premium toolkit · Next.js + Supabase</text>
+</svg>

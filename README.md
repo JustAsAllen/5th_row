@@ -1,335 +1,405 @@
-# ULTIMATE HACKATHON CHEATCODE - 5th_row
+# 🎒 5th_row — The Doraemon Magic Pocket
 
-> **Stack:** Next.js 16 + React 19 + TypeScript + Tailwind CSS v4 + Shadcn UI + Three.js + Framer Motion
+> **Your all-in-one web development super-toolkit.** Stack, skills, prompts, and patterns for building **gaand-faad client websites** with opencode. Everything you need is inside this pocket — just pull it out and use it.
 
 ---
 
 ## TABLE OF CONTENTS
 
-1. [Project Setup](#1-project-setup)
-2. [Frontend Cheat Codes](#2-frontend-cheat-codes)
-3. [Backend and API Routes](#3-backend-and-api-routes)
-4. [Database Setup](#4-database-setup)
-5. [Authentication](#5-authentication)
-6. [3D Graphics](#6-3d-graphics)
-7. [Animations](#7-animations)
-8. [UI Components](#8-ui-components)
-9. [State Management](#9-state-management)
-10. [Real-Time Features](#10-real-time-features)
-11. [Hosting and Deployment](#11-hosting-and-deployment)
-12. [Hackathon Game Plan](#12-hackathon-game-plan)
-13. [Judges Love This](#13-judges-love-this)
-14. [Common Gotchas](#14-common-gotchas)
-15. [Quick Reference](#15-quick-reference)
+1. [What Is This?](#1-what-is-this)
+2. [Your Complete Setup (Everything Installed)](#2-your-complete-setup)
+3. [How To Talk To opencode (Prompting Cheat Codes)](#3-how-to-talk-to-opencode)
+4. [MCP Servers — What They Do](#4-mcp-servers)
+5. [Skills Installed — Your Superpowers](#5-skills-installed)
+6. [The Premium Design Formula](#6-the-premium-design-formula)
+7. [Frontend Building Blocks](#7-frontend-building-blocks)
+8. [3D Graphics](#8-3d-graphics)
+9. [Animations](#9-animations)
+10. [Backend + Database (Supabase)](#10-backend--database)
+11. [Authentication](#11-authentication)
+12. [Making Client Money $$$](#12-making-client-money)
+13. [Deploying Like A Pro](#13-deploying-like-a-pro)
+14. [Reusable Prompts Gallery](#14-reusable-prompts-gallery)
+15. [Common Problems & Fixes](#15-common-problems--fixes)
+16. [Quick Reference Card](#16-quick-reference-card)
 
 ---
 
-## 1. Project Setup
+## 1. What Is This?
 
+This folder is your **magic pocket / backup / super-toolbox**. You bring it anywhere and it contains:
+
+- A **battle-tested Next.js stack** (preconfigured, ready to code)
+- An **opencode setup** (MCP servers + skills) that makes AI builds look premium
+- **Prompting cheat codes** so you never freeze on "what do I say?"
+- **Design formulas** that make everything look expensive
+- **Client money-making workflow**
+
+> If you blank on anything, open this README. It is your manual.
+
+---
+
+## 2. Your Complete Setup (Everything Installed)
+
+### Stack (already installed in this project)
+```
+Next.js 16 + React 19 + TypeScript + Tailwind CSS v4
+shadcn/ui (Base UI, Vega preset) + lucide-react icons
+Three.js + @react-three/fiber + @react-three/drei (3D)
+framer-motion (animations) + sonner (toasts)
+Supabase (auth, database, storage, realtime) — GLOBAL SETUP DONE
+react-hook-form + zod (forms/validation) + zustand (state)
+recharts (charts) + date-fns (dates) + cmdk (command menu)
+```
+
+### Backend Files (already wired up)
+```
+src/lib/supabase/client.ts      → Browser client
+src/lib/supabase/server.ts      → Server client
+src/lib/supabase/middleware.ts  → Auth session refresh
+src/lib/supabase/use-user.ts    → useUser() hook
+src/lib/supabase/use-auth.ts    → useAuth() hook (signUp/signIn/signOut)
+src/lib/supabase/use-storage.ts → useStorage() hook (upload/delete files)
+src/lib/supabase/use-realtime.ts → useRealtime() hook (live DB updates)
+src/middleware.ts                → Auto-refreshes auth sessions
+.env.example                    → Copy to .env.local and fill in keys
+```
+
+### Commands
 ```bash
-cd 5th_row
-npm install
-npm run dev
-# -> http://localhost:3000
-
-# Add Shadcn UI components
-npx shadcn@latest add button card dialog dropdown-menu toast
-npx shadcn@latest add input form table badge avatar tabs
-npx shadcn@latest add select separator sheet skeleton tooltip
-
-# Extra libs
-npm install @supabase/supabase-js
-npm install prisma @prisma/client
-npm install axios date-fns recharts
-npm install zustand react-hook-form zod
+npm run dev        # start dev server -> http://localhost:3000
+npm run build      # production build
+npm run lint       # check for errors
+npx shadcn@latest add <component>   # add UI components
+vercel --prod      # deploy to live URL
 ```
 
-### First 30-Minute Checklist
+### The Control Center (MAIN PAGE)
+Root `/` redirects to the **Control Center** (`http://localhost:3000/control`) — a real dashboard with **click-to-run buttons** that execute commands (lint, typecheck, build, shadcn add, deploy, etc.) and show output in a live console. The step-by-step guide lives at `/toolkit`.
+
+> This project is the **5th_row toolkit itself**: the Control Center + guide + global Supabase backend files. Copy this folder (or its `src/lib/supabase/`) into every new client project.
+
+### Account Setup (All Free — Make These Now)
+| Service | Why | Link |
+|---------|-----|------|
+| GitHub | Host code, backup projects, portfolio | https://github.com |
+| Vercel | Free hosting + live URLs for clients | https://vercel.com |
+| Supabase | Free database + auth + storage | https://supabase.com |
+
+---
+
+## 3. How To Talk To opencode
+
+### The Magic Formula
+Open a new opencode session inside any project folder and just say:
 
 ```
-[ ] npm install + npm run dev
-[ ] npx shadcn@latest add (all components)
-[ ] Set up database (Supabase)
-[ ] Create .env.local
-[ ] Define MVP scope
-[ ] Split work
-[ ] Create route structure
+[What you want] + [the look/style] + [any reference link]
+```
+
+### Real Examples
+```
+"Create a landing page for a coffee shop. Premium dark theme. Make it like bluebottle.com"
+"Add a pricing section with 3 tiers, middle one highlighted as most popular"
+"Make my hero more impactful with a gradient heading and animated button"
+"Fix the contact form — it's not sending"
+"Deploy this to Vercel"
+"Check how this looks on mobile"
+"Make a navbar with a hamburger menu that works on phones"
+```
+
+### Better Prompts = Better Sites
+| Weak prompt | Strong prompt |
+|---|---|
+| "Make a website" | "Make a one-page site for a real estate agent: hero, services, properties grid, contact form" |
+| "Make it look nice" | "Premium dark theme, violet accent, rounded cards, smooth animations" |
+| "Add a button" | "Add a 'Get Started' button in the hero — violet with a glow on hover" |
+| "Fix the bug" | "The submit button does nothing when clicked — no error shows, fix it" |
+
+### 3 Rules
+1. **One thing per message** when starting out
+2. **Say the style** you want (premium, clean, dark, colorful, minimal)
+3. **Send reference links** — I'll learn from them automatically
+
+---
+
+## 4. MCP Servers
+
+These are "superpowers" wired into opencode globally (`~/.config/opencode/opencode.json`). All **free**.
+
+| Server | Superpower | You Say |
+|--------|-----------|---------|
+| **Playwright** | Opens a real browser, clicks, screenshots | "Screenshot my homepage" |
+| **Puppeteer** | Browser automation + page capture | "Open this link and tell me what it looks like" |
+| **Context7** | Pulls real library docs (no wrong APIs) | (automatic — keeps code accurate) |
+| **Chrome DevTools** | Reads console errors, network, performance | "Why is my page slow?" |
+| **Filesystem** | Reads files anywhere on your PC | "Find my design files" |
+| **Firecrawl** | Scrapes any website into clean text | "Learn the design of [URL]" |
+
+> To add GitHub/Vercel/Supabase MCP later (optional), logs into those accounts and I'll wire them up — they're free too.
+
+---
+
+## 5. Skills Installed (ALL Trigger Keywords)
+
+Skills live in `~/.config/opencode/skills/`. They **auto-trigger** when you mention any of these keywords in your message.
+
+### website-cloner
+> Analyzes any website's design (colors, typography, layout, spacing, components) and recreates it as premium modern code.
+
+| Trigger Keywords |
+|-----------------|
+| `clone website` |
+| `learn from site` |
+| `make it look like` |
+| `copy design` |
+| `reference website` |
+| `analyze website` |
+| `extract design from [URL]` |
+| `clone this` |
+| `rebuild this style` |
+| `make it like [URL]` |
+
+**Example prompts:**
+- "Clone https://stripe.com and make it like that for my SaaS"
+- "Learn from https://linear.app and rebuild its design style for my site"
+- "Extract the design from https://vercel.com and apply it here"
+
+---
+
+### ui-ux-premium
+> Applies the premium design formula — expensive-looking colors, typography, spacing, animations, and components.
+
+| Trigger Keywords |
+|-----------------|
+| `make it premium` |
+| `make it look expensive` |
+| `high class` |
+| `goated interface` |
+| `beautiful design` |
+| `amazing UI` |
+| `moon-worthy design` |
+| `upgrade the design` |
+| `luxury look` |
+| `modern aesthetic` |
+| `expensive` |
+| `goated` |
+| `polished` |
+| `premium look` |
+
+**Example prompts:**
+- "Make this page look premium with gradient text and hover glows"
+- "Upgrade the design to look expensive — luxury aesthetic"
+- "Give it a goated interface with smooth animations"
+
+---
+
+### client-project
+> Guides the full paid-client workflow — discovery, proposal, build, delivery, handoff, and getting paid.
+
+| Trigger Keywords |
+|-----------------|
+| `client` |
+| `client project` |
+| `client work` |
+| `client website` |
+| `paid work` |
+| `freelance` |
+| `deliver to client` |
+| `requirements` |
+
+**Example prompts:**
+- "I have a client project for a restaurant — let's start"
+- "Help me scope this freelance gig"
+- "What do I need before delivering to the client?"
+
+---
+
+### responsive-testing
+> Screenshots and fixes responsive layouts at every breakpoint (320px → 1536px).
+
+| Trigger Keywords |
+|-----------------|
+| `mobile responsive` |
+| `check mobile` |
+| `responsive` |
+| `fix mobile` |
+| `test on phone` |
+| `mobile view` |
+| `breakpoints` |
+| `tablet view` |
+| `desktop view` |
+
+**Example prompts:**
+- "Check my site at mobile (375px), tablet (768px), and desktop (1280px)"
+- "Fix mobile — the navbar is overlapping content"
+- "Test responsive at every breakpoint and show me screenshots"
+
+---
+
+### supabase-backend
+> Builds backend features correctly — database, auth, storage, realtime, API routes, and security.
+
+| Trigger Keywords |
+|-----------------|
+| `database` |
+| `backend` |
+| `supabase` |
+| `auth` |
+| `login` |
+| `signup` |
+| `realtime` |
+| `storage` |
+| `API` |
+| `tables` |
+| `rows` |
+| `postgres` |
+| `sign in` |
+| `user accounts` |
+| `forms data` |
+
+**Example prompts:**
+- "Create a contacts form connected to Supabase"
+- "Add login/signup pages with auth"
+- "Set up realtime chat messages in the database"
+- "Upload images to Supabase storage"
+
+---
+
+## 6. The Premium Design Formula
+
+Use this whenever the user wants an expensive-looking site.
+
+### Colors
+```
+Background: zinc-950 / zinc-900 (cards)
+Text: zinc-100 / zinc-400 (muted)
+Border: zinc-800
+Accent: violet-500 (or brand color) + glow shadows
+```
+
+### Typography
+```
+Hero: text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight
+Gradient text: bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-500
+Body: text-base md:text-lg text-zinc-400
+```
+
+### The Premium Page Structure
+```
+1. Hero         → headline + gradient text + CTA + product preview
+2. Logos        → "Trusted by" grayscale strip
+3. Features     → 3-6 cards, icons, hover glow
+4. Highlight    → alternating image + text blocks
+5. Stats        → animated number counters
+6. Testimonials → 3 quote cards
+7. Pricing      → 3 tiers, middle = "Most Popular"
+8. FAQ          → accordion
+9. Final CTA    → big gradient band
+10. Footer      → 4 columns + socials
+```
+
+### Premium Details Checklist
+```
+[ ] Buttons: rounded-full, border, backdrop-blur, hover glow + scale
+[ ] Cards: rounded-2xl border-zinc-800 bg-zinc-900/60, hover:-translate-y-1
+[ ] Navbar: sticky top-0 backdrop-blur-xl bg-zinc-950/80 border-b
+[ ] Micro-animations with framer-motion (fade-up, stagger)
+[ ] Generous spacing: py-24 md:py-32 per section
+[ ] Loading skeletons + toast feedback everywhere
+```
+
+### Example Button
+```tsx
+<button className="rounded-full bg-violet-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]">
+  Get Started
+</button>
 ```
 
 ---
 
-## 2. Frontend Cheat Codes
+## 7. Frontend Building Blocks
 
-### Project Structure
-
-```
-src/
-  app/
-    layout.tsx          # Root layout
-    page.tsx            # Homepage
-    globals.css         # Theme + Tailwind
-    about/page.tsx      # /about route
-    api/hello/route.ts  # /api/hello
-    dashboard/page.tsx  # /dashboard
-  components/
-    ui/                 # Shadcn primitives
-    shared/             # Reusable
-    features/           # Feature-specific
-  lib/
-    utils.ts            # cn() helper
-    supabase.ts         # Supabase client
-  hooks/                # Custom hooks
-```
-
-### Quick Page Template
-
+### Page Template
 ```tsx
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-export const metadata = { title: "Dashboard | 5th_row" };
-
-export default function DashboardPage() {
+// src/app/page.tsx
+export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100 p-8">
-      <h1 className="text-4xl font-bold mb-8">Dashboard</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card>
-          <CardHeader><CardTitle>Total Users</CardTitle></CardHeader>
-          <CardContent><p className="text-3xl font-bold">1,234</p></CardContent>
-        </Card>
-      </div>
+    <main className="min-h-screen bg-zinc-950 text-zinc-100">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <h1 className="text-5xl md:text-7xl font-semibold tracking-tight">Big Headline</h1>
+        <p className="mt-6 text-lg text-zinc-400 max-w-2xl">Subheadline goes here…</p>
+        <button className="mt-8 rounded-full bg-violet-600 px-6 py-3 hover:scale-105 transition-all">
+          Get Started
+        </button>
+      </section>
     </main>
   );
 }
 ```
 
 ### Client vs Server Components
-
 ```tsx
-// Server Component (default) - no "use client"
-// Good for: static content, data fetching, SEO
-async function ServerComponent() {
-  const data = await fetch("https://api.example.com/data");
-  return <div>{/* render data */}</div>;
+// Server Component (default) — for data, SEO, static content
+async function Users() {
+  const data = await fetch("https://api.example.com/users");
+  return <div>{/* render */}</div>;
 }
 
-// Client Component - runs in browser
-// Good for: forms, clicks, animations, state
+// Client Component — needs "use client" first line (interactions/state)
 "use client";
-import { useState } from "react";
-function ClientComponent() {
+function Counter() {
   const [count, setCount] = useState(0);
   return <button onClick={() => setCount(c => c + 1)}>{count}</button>;
 }
 ```
 
-### Responsive Design
-
+### Responsive (Mobile-First)
 ```tsx
-// Mobile-first breakpoints
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 md:p-8">
-  {/* Content */}
-</div>
-
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
 <div className="hidden md:block">Desktop only</div>
-<div className="block md:hidden">Mobile only</div>
-<h1 className="text-2xl md:text-4xl lg:text-6xl font-bold">Responsive</h1>
+<div className="md:hidden">Mobile only</div>
+<h1 className="text-3xl sm:text-4xl lg:text-6xl">Responsive Heading</h1>
 ```
-
----
-
-## 3. Backend and API Routes
 
 ### API Route Template
-
 ```ts
-import { NextRequest, NextResponse } from "next/server";
-
-export async function POST(request: NextRequest) {
-  try {
-    const body = await request.json();
-    const { name, email } = body;
-    if (!name || !email) {
-      return NextResponse.json({ error: "Required fields missing" }, { status: 400 });
-    }
-    return NextResponse.json({ success: true, data: { name, email } });
-  } catch (error) {
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
-  }
+// src/app/api/items/route.ts
+import { NextResponse } from "next/server";
+export async function GET() {
+  return NextResponse.json({ items: [] });
 }
-
-export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const query = searchParams.get("q");
-  return NextResponse.json({ results: [] });
-}
-```
-
-### All HTTP Methods
-
-```ts
-// src/app/api/items/[id]/route.ts
-export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  return NextResponse.json({ id });
-}
-
-export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export async function POST(request: Request) {
   const body = await request.json();
-  return NextResponse.json({ id, ...body });
+  if (!body.name) return NextResponse.json({ error: "Missing name" }, { status: 400 });
+  return NextResponse.json({ ok: true, body });
 }
-
-export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  return NextResponse.json({ deleted: id });
-}
-```
-
-### Server Actions
-
-```ts
-"use server";
-import { revalidatePath } from "next/cache";
-
-export async function addUser(formData: FormData) {
-  const name = formData.get("name") as string;
-  const email = formData.get("email") as string;
-  revalidatePath("/users");
-  return { success: true };
-}
-
-// Usage: <form action={addUser}>
 ```
 
 ---
 
-## 4. Database Setup
+## 8. 3D Graphics
 
-### Option A: Supabase (Fastest)
+Works out of the box in this project.
 
-```bash
-npm install @supabase/supabase-js
-```
-
-```ts
-// src/lib/supabase.ts
-import { createClient } from "@supabase/supabase-js";
-export const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
-```
-
-```env
-# .env.local
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-```
-
-```ts
-// CRUD Operations
-const { data } = await supabase.from("users").select("*").eq("email", email).single();
-const { data } = await supabase.from("users").insert({ name, email }).select();
-const { data } = await supabase.from("users").update({ name: "New" }).eq("id", userId);
-const { error } = await supabase.from("users").delete().eq("id", userId);
-```
-
-### Option B: Prisma
-
-```bash
-npm install prisma @prisma/client
-npx prisma init
-```
-
-```prisma
-datasource db { provider = "sqlite"; url = env("DATABASE_URL") }
-generator client { provider = "prisma-client-js" }
-model User { id Int @id @default(autoincrement()); name String; email String @unique }
-```
-
-```bash
-npx prisma db push
-npx prisma generate
-npx prisma studio
-```
-
----
-
-## 5. Authentication
-
-### Supabase Auth
-
-```ts
-// Login
-await supabase.auth.signInWithPassword({ email, password });
-// Register
-await supabase.auth.signUp({ email, password });
-// Logout
-await supabase.auth.signOut();
-// Get user
-const { data: { user } } = await supabase.auth.getUser();
-```
-
-### Middleware Protection
-
-```ts
-// middleware.ts (project root)
-import { createServerClient } from "@supabase/ssr";
-import { NextResponse, type NextRequest } from "next/server";
-
-export async function middleware(request: NextRequest) {
-  let response = NextResponse.next({ request: { headers: request.headers } });
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { cookies: { getAll: () => request.cookies.getAll(), setAll: (c) => c.forEach(({ name, value, options }) => response.cookies.set(name, value, options)) } }
-  );
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user && request.nextUrl.pathname !== "/login") {
-    return NextResponse.redirect(new URL("/login", request.url));
-  }
-  return response;
-}
-export const config = { matcher: ["/dashboard/:path*"] };
-```
-
-### No Auth (Fastest)
-
-```ts
-const userId = localStorage.getItem("userId") || crypto.randomUUID();
-localStorage.setItem("userId", userId);
-```
-
----
-
-## 6. 3D Graphics
-
-### Basic R3F Canvas
-
+### Standard 3D Scene
 ```tsx
 "use client";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Float, Environment, ContactShadows } from "@react-three/drei";
+import { Float, ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
-
-function Scene() {
-  return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-      <mesh>
-        <torusKnotGeometry args={[1, 0.3, 128, 32]} />
-        <meshStandardMaterial color="#8b5cf6" metalness={0.8} roughness={0.2} />
-      </mesh>
-    </Float>
-  );
-}
 
 export function Hero3D() {
   return (
     <div className="w-full h-[450px] relative">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+      <Canvas camera={{ position: [0, 0, 5] }}>
         <Suspense fallback={null}>
-          <Scene />
+          <Float speed={2} rotationIntensity={1}>
+            <mesh>
+              <torusKnotGeometry args={[1, 0.3, 128, 32]} />
+              <meshStandardMaterial color="#8b5cf6" metalness={0.8} roughness={0.2} />
+            </mesh>
+          </Float>
           <Environment preset="city" />
           <ContactShadows position={[0, -2, 0]} opacity={0.4} blur={2} />
           <OrbitControls enableZoom={false} enablePan={false} />
@@ -340,541 +410,386 @@ export function Hero3D() {
 }
 ```
 
-### Common 3D Objects
-
-```tsx
-// Box
-<mesh><boxGeometry args={[1, 1, 1]} /><meshStandardMaterial color="orange" /></mesh>
-
-// Sphere
-<mesh position={[2, 0, 0]}>
-  <sphereGeometry args={[0.5, 32, 32]} />
-  <meshPhysicalMaterial color="cyan" metalness={0.9} roughness={0.1} />
-</mesh>
-
-// Text (drei)
-import { Text } from "@react-three/drei";
-<Text fontSize={1} color="white" anchorX="center" anchorY="middle">Hello</Text>
-
-// GLTF Model (drei)
-import { useGLTF } from "@react-three/drei";
-function Model() {
-  const { scene } = useGLTF("/model.glb");
-  return <primitive object={scene} />;
-}
-```
-
 ### 3D Rules
-- Always wrap in `<Suspense>` with fallback
-- Set explicit width/height on Canvas container
-- Use `Environment preset="city"` for quick lighting
-- Mark every file with `use client`
+- Always `'use client'` on 3D files
+- Container needs explicit height (`h-[450px]`)
+- Wrap in `<Suspense>`
+- Use `Environment preset="city"` for good lighting fast
 
 ---
 
-## 7. Animations
+## 9. Animations (framer-motion)
 
-### Framer Motion
-
+### Fade-Up (most used)
 ```tsx
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
-
-// Fade in
-<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+import { motion } from "framer-motion";
+<motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
   Content
 </motion.div>
+```
 
-// Stagger children
-<motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
-  {items.map((item) => (
-    <motion.div key={item.id} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-      {item.name}
+### Stagger List
+```tsx
+<motion.div initial="hidden" whileInView="visible"
+  variants={{ visible: { transition: { staggerChildren: 0.1 } } }}>
+  {items.map(i => (
+    <motion.div key={i.id} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+      {i.name}
     </motion.div>
   ))}
 </motion.div>
-
-// Hover + Tap
-<motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="bg-violet-600 px-6 py-3 rounded-xl">
-  Click Me
-</motion.button>
-
-// AnimatePresence
-<AnimatePresence mode="wait">
-  {isOpen && (
-    <motion.div key="modal" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }}>
-      Modal
-    </motion.div>
-  )}
-</AnimatePresence>
-
-// Scroll reveal
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-function ScrollReveal({ children }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} transition={{ duration: 0.6 }}>
-      {children}
-    </motion.div>
-  );
-}
 ```
 
-### Sonner Toasts
+### Hover + Tap
+```tsx
+<motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+  className="bg-violet-600 px-6 py-3 rounded-xl text-white">
+  Click Me
+</motion.button>
+```
 
+### Toasts (sonner)
 ```tsx
 import { toast } from "sonner";
-toast.success("Done!");
-toast.error("Failed!");
-toast("Created", { description: "Scheduled for Monday" });
-toast.promise(saveData(), { loading: "Saving...", success: "Saved!", error: "Failed." });
+toast.success("Saved!");               // success
+toast.error("Something failed");       // error
+toast.promise(save(), { loading: "Saving…", success: "Done!", error: "Failed" });
 ```
 
 ---
 
-## 8. UI Components
+## 10. Backend + Database (Global Setup — One Time Only)
 
-### Install All at Once
+### One-Time Setup (Never Do This Again)
 
-```bash
-npx shadcn@latest add button card input label textarea dialog dropdown-menu toast table badge avatar tabs select separator sheet skeleton tooltip
+1. Go to https://supabase.com → **New Project** → pick a name + password
+2. Go to **Project Settings → API** → copy these 3 keys
+3. Create `.env.local` in your project root:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://YOUR-PROJECT-ID.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
-### Component Reference
+4. Done — the global backend files are already wired up in `src/lib/supabase/`:
 
-| Component | Import | Use For |
-|-----------|--------|---------|
-| Button | @/components/ui/button | Actions |
-| Card | @/components/ui/card | Containers |
-| Input | @/components/ui/input | Text fields |
-| Dialog | @/components/ui/dialog | Modals |
-| Sheet | @/components/ui/sheet | Side panels |
-| Table | @/components/ui/table | Data display |
-| Badge | @/components/ui/badge | Status |
-| Tabs | @/components/ui/tabs | Navigation |
-| Select | @/components/ui/select | Dropdowns |
-| Skeleton | @/components/ui/skeleton | Loading |
-| Toast | sonner | Notifications |
+```
+src/lib/supabase/
+├── client.ts      → Browser client (use in "use client" components)
+├── server.ts      → Server client (use in Server Components, API routes)
+├── middleware.ts  → Auth session refresh (auto-logged in via middleware.ts)
+├── use-user.ts    → Hook: get current logged-in user
+├── use-auth.ts    → Hook: signUp(), signIn(), signOut() with toasts
+├── use-storage.ts → Hook: upload files, get public URL, delete
+└── use-realtime.ts → Hook: live database updates in real-time
+```
 
-### Navigation Bar
+### Quick Usage (Copy-Paste Ready)
 
+**Get current user:**
 ```tsx
 "use client";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { useUser } from "@/lib/supabase/use-user";
 
-export function Navbar() {
-  return (
-    <nav className="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold">5th_row</Link>
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/dashboard" className="text-sm text-zinc-400 hover:text-white">Dashboard</Link>
-          <Button size="sm">Get Started</Button>
-        </div>
-        <Sheet>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon"><Menu className="w-5 h-5" /></Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-72">
-            <div className="flex flex-col gap-4 mt-8">
-              <Link href="/dashboard" className="text-lg">Dashboard</Link>
-            </div>
-          </SheetContent>
-        </Sheet>
-      </div>
-    </nav>
-  );
+export function Profile() {
+  const { user, loading } = useUser();
+  if (loading) return <div>Loading…</div>;
+  if (!user) return <div>Not logged in</div>;
+  return <div>Welcome, {user.email}</div>;
 }
 ```
 
-### Loading Skeleton
-
+**Login / Signup / Logout:**
 ```tsx
-import { Skeleton } from "@/components/ui/skeleton";
-export function CardSkeleton() {
+"use client";
+import { useAuth } from "@/lib/supabase/use-auth";
+
+export function AuthButtons() {
+  const { signIn, signUp, signOut, loading } = useAuth();
   return (
-    <div className="space-y-3">
-      <Skeleton className="h-4 w-[250px]" />
-      <Skeleton className="h-4 w-[200px]" />
-      <Skeleton className="h-32 w-full" />
+    <div>
+      <button onClick={() => signIn("email@test.com", "password123")} disabled={loading}>
+        Sign In
+      </button>
+      <button onClick={() => signUp("email@test.com", "password123", "John")} disabled={loading}>
+        Sign Up
+      </button>
+      <button onClick={signOut}>Sign Out</button>
     </div>
   );
 }
 ```
 
-### Data Table
-
+**Upload file to storage:**
 ```tsx
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
+"use client";
+import { useStorage } from "@/lib/supabase/use-storage";
 
-export function DataTable({ data }: { data: User[] }) {
+export function AvatarUpload() {
+  const { upload, uploading } = useStorage("avatars");
+  const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const { url } = await upload(file, `user-${Date.now()}.png`);
+    console.log("Public URL:", url);
+  };
+  return <input type="file" onChange={handleUpload} disabled={uploading} />;
+}
+```
+
+**Realtime live updates:**
+```tsx
+"use client";
+import { useRealtime } from "@/lib/supabase/use-realtime";
+
+interface Message {
+  id: string;
+  content: string;
+  created_at: string;
+}
+
+export function LiveChat() {
+  const messages = useRealtime<Message>({ table: "messages", event: "INSERT" });
   return (
-    <Table>
-      <TableHeader>
-        <TableRow><TableHead>Name</TableHead><TableHead>Email</TableHead><TableHead>Status</TableHead></TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.map((user) => (
-          <TableRow key={user.id}>
-            <TableCell className="font-medium">{user.name}</TableCell>
-            <TableCell>{user.email}</TableCell>
-            <TableCell><Badge>{user.status}</Badge></TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+    <div>
+      {messages.map((m) => <p key={m.id}>{m.content}</p>)}
+    </div>
   );
 }
 ```
 
+**Server Component (data fetching):**
+```tsx
+import { createClient } from "@/lib/supabase/server";
+
+export default async function Page() {
+  const supabase = await createClient();
+  const { data: posts } = await supabase.from("posts").select("*").order("created_at", { ascending: false });
+  return <div>{posts?.map(p => <p key={p.id}>{p.title}</p>)}</div>;
+}
+```
+
+**API Route (protected):**
+```ts
+import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from "next/server";
+
+export async function POST(request: Request) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const body = await request.json();
+  const { data, error } = await supabase.from("items").insert(body).select().single();
+  if (error) return NextResponse.json({ error: error.message }, { status: 400 });
+  return NextResponse.json(data);
+}
+```
+
+### CRUD Cheat Sheet
+```ts
+import { createClient } from "@/lib/supabase/client";
+const supabase = createClient();
+
+// INSERT
+await supabase.from("contacts").insert({ name, email, message }).select().single();
+// SELECT
+const { data } = await supabase.from("contacts").select("*").order("created_at", { ascending: false });
+// UPDATE
+await supabase.from("users").update({ name: "New" }).eq("id", id);
+// DELETE
+await supabase.from("users").delete().eq("id", id);
+```
+
+> Ask opencode: *"Create a contacts form connected to Supabase"* — done in minutes.
+
 ---
 
-## 9. State Management
+## 11. Authentication (Already Set Up)
 
-### React Hooks (Simple)
+Auth is ready to use — the `useAuth` hook handles everything:
 
 ```tsx
-const [count, setCount] = useState(0);
-const [items, setItems] = useState([]);
-const [isLoading, setIsLoading] = useState(true);
-const [error, setError] = useState(null);
+import { useAuth } from "@/lib/supabase/use-auth";
+const { signIn, signUp, signOut, loading } = useAuth();
 ```
 
-### Zustand (Global)
-
-```bash
-npm install zustand
-```
-
+### Raw Supabase Auth (if you need it)
 ```ts
-import { create } from "zustand";
-
-interface AppState {
-  user: User | null;
-  theme: "light" | "dark";
-  setUser: (user: User | null) => void;
-  toggleTheme: () => void;
-}
-
-export const useAppStore = create<AppState>((set) => ({
-  user: null,
-  theme: "dark",
-  setUser: (user) => set({ user }),
-  toggleTheme: () => set((s) => ({ theme: s.theme === "dark" ? "light" : "dark" })),
-}));
+await supabase.auth.signInWithPassword({ email, password });
+await supabase.auth.signUp({ email, password, options: { data: { name } } });
+await supabase.auth.signOut();
+const { data: { user } } = await supabase.auth.getUser();
 ```
 
-```tsx
-"use client";
-import { useAppStore } from "@/store/useAppStore";
-function UserButton() {
-  const { user, setUser } = useAppStore();
-  return user ? <span>{user.name}</span> : <button onClick={() => setUser({ id: 1, name: "Allen" })}>Login</button>;
-}
+> The middleware in `src/middleware.ts` auto-refreshes sessions — users stay logged in across page loads.
+
+---
+
+## 12. Making Client Money $$$
+
+### Ask The Client (before coding)
+```
+What do you sell? Who is it for?
+Which pages? (Home, About, Services, Contact…)
+Brand colors / logo? Reference sites you like?
+Do you need bookings/payments/forms?
+```
+
+### Quick Pricing (simple starter)
+```
+Landing page (1-5 sections, responsive):        $300 - $800
+Multi-page site (5-8 pages + contact):          $800 - $2,000
+E-commerce / booking / membership:              $2,000 - $5,000+
+Monthly maintenance (updates, backups, support): $50 - $200/mo
+```
+
+### Workflow That Gets You Paid
+```
+1. 50% deposit upfront → start building
+2. Show draft → 1 revision round included
+3. 50% on launch → deploy + hand over
+4. Ask for a Google review + testimonial
+```
+
+### Prompts To Run With opencode While Building
+```
+"Create a client site: [business], pages [list], style [premium/dark/color], primary color #hex"
+"Make a contact form that saves to Supabase and emails the client"
+"Deploy this to Vercel and give me the live URL"
+"Check it looks perfect on mobile + desktop"
 ```
 
 ---
 
-## 10. Real-Time Features
+## 13. Deploying Like A Pro
 
-### Supabase Realtime
-
-```ts
-const channel = supabase
-  .channel("messages")
-  .on("postgres_changes", { event: "INSERT", schema: "public", table: "messages" }, (payload) => {
-    setMessages((prev) => [...prev, payload.new]);
-  })
-  .subscribe();
-
-useEffect(() => { return () => { supabase.removeChannel(channel); }; }, []);
-```
-
-### Server-Sent Events
-
-```ts
-// src/app/api/stream/route.ts
-export async function GET() {
-  const encoder = new TextEncoder();
-  const stream = new ReadableStream({
-    start(controller) {
-      const interval = setInterval(() => {
-        const data = "data: " + JSON.stringify({ time: new Date().toISOString() }) + "\n\n";
-        controller.enqueue(encoder.encode(data));
-      }, 1000);
-      setTimeout(() => { clearInterval(interval); controller.close(); }, 30000);
-    },
-  });
-  return new Response(stream, { headers: { "Content-Type": "text/event-stream", "Cache-Control": "no-cache" } });
-}
-```
-
----
-
-## 11. Hosting and Deployment
-
-### Vercel (Recommended)
-
+### Vercel (fastest, free)
 ```bash
-npm i -g vercel
-vercel          # Interactive deploy
-vercel --prod   # Production deploy
+vercel          # first deploy
+vercel --prod   # production
 ```
+Or GUI: **vercel.com → Add New Project → import your GitHub repo → Deploy**. Auto-detects Next.js.
 
-**Setup Checklist:**
+### Post-deploy checklist
 ```
-[ ] Push to GitHub
-[ ] Go to vercel.com/new
-[ ] Import repo (auto-detects Next.js)
-[ ] Add env vars in dashboard
-[ ] Deploy (30 seconds)
-```
-
-### Netlify
-
-```bash
-npm i -g netlify-cli
-netlify init
-netlify deploy --prod
-```
-
-### Docker
-
-```dockerfile
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM node:20-alpine AS runner
-WORKDIR /app
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/public ./public
-EXPOSE 3000
-CMD ["node", "server.js"]
-```
-
-### Static Export
-
-```ts
-// next.config.ts
-const nextConfig = { output: "export" };
-```
-
-```bash
-npm run build  # generates /out
-# Upload /out to any static host
+[ ] Live URL works
+[ ] Forms submit (test it!)
+[ ] Env vars set on Vercel dashboard
+[ ] Custom domain connected (if client provided)
+[ ] Page title + favicon + meta description set
+[ ] Redirects www → non-www
 ```
 
 ---
 
-## 12. Hackathon Game Plan
+## 14. Reusable Prompts Gallery
 
-### 24-Hour Timeline
+Copy-paste these into opencode for instant results.
 
-**Hours 0-2: Setup**
+### Landing Page
 ```
-[ ] Project init + repo
-[ ] npm install + dev server
-[ ] Set up database
-[ ] Define MVP scope (CUT AGGRESSIVELY)
-[ ] Assign frontend/backend
-```
-
-**Hours 2-8: Core Build**
-```
-[ ] Backend: API routes + DB
-[ ] Frontend: Layout + 2-3 pages
-[ ] Connect frontend to backend
-[ ] Basic CRUD working
+Create a premium landing page for [business/purpose].
+Sections: hero with gradient headline + CTA, trust logos, 3 feature cards,
+stats row, 3 testimonials, pricing (3 tiers, middle highlighted), FAQ, footer.
+Theme: dark zinc with violet accent. Mobile responsive. Smooth animations.
 ```
 
-**Hours 8-14: Features**
+### Website Clone/Learn
 ```
-[ ] Polish core features
-[ ] Add 3D / animations
-[ ] Real-time features
-[ ] Error handling + loading states
+Look at https://[reference-website] and rebuild its design style for my site.
+Match the colors, typography, and layout feel — but make it my [business].
 ```
 
-**Hours 14-20: Polish + Deploy**
+### Fix Mobile
 ```
-[ ] Responsive design
-[ ] Deploy to Vercel
-[ ] Fix deployment bugs
-[ ] Record demo video
+Check my site at mobile (375px), tablet (768px), and desktop (1280px).
+Fix any overflow, stacking, or sizing issues. Show me screenshots.
 ```
 
-**Hours 20-24: Presentation**
+### Contact Form (with backend)
 ```
-[ ] Practice demo (3 min)
-[ ] Build slides (5 max)
-[ ] Test on judges device
-[ ] NO NEW FEATURES
+Build a contact form (name, email, message) that saves submissions to a
+Supabase table and shows a success toast. Validate with zod. Mobile responsive.
 ```
 
-### What Judges Score
-
-| Category | Weight | What To Show |
-|----------|--------|-------------|
-| Impact | 30% | Solves a real problem |
-| Tech | 25% | Clean code, modern stack |
-| Design | 20% | Polished UI, animations |
-| Demo | 15% | Smooth walkthrough |
-| Innovation | 10% | Unique approach |
-
-### Scope Rules
-- **Must have:** 1 core feature working perfectly
-- **Nice to have:** 1 secondary feature
-- **Cut immediately:** Multi-language, complex auth, perfect mobile
-- **Never skip:** Working demo, deployed link, clean UI
-
----
-
-## 13. Judges Love This
-
-### Visual Polish Checklist
+### Premium Polish
 ```
-[ ] Dark theme (zinc + violet accent)
-[ ] Smooth transitions (Framer Motion)
-[ ] Hover effects on buttons
-[ ] Loading skeletons
-[ ] Toast notifications
-[ ] Responsive on laptop
-[ ] Animated hero section
+Make this page look premium: rounded cards, hover glows, gradient text,
+staggered entrance animations, sticky blurred navbar, generous spacing.
 ```
 
-### Technical Wow Factors
+### Deploy
 ```
-[ ] Real-time updates
-[ ] 3D element (R3F)
-[ ] next/image optimization
-[ ] Server-side rendering
-[ ] API with error handling
-[ ] TypeScript strict mode
-[ ] Loading states everywhere
+Build the project, check for errors, then deploy to Vercel. Give me the live URL.
 ```
 
-### Presentation Template (3 min)
+### Complete Client Site
 ```
-1. HOOK (15s): "Have you ever [problem]?"
-2. SOLUTION (30s): "We built [project]"
-3. DEMO (90s): Live walkthrough
-4. TECH (30s): "We used [stack]"
-5. IMPACT (15s): "[X] users benefit"
-6. FUTURE (10s): "Next we'd add..."
+Build a complete client website for [business]. Pages: home, about, services,
+portfolio, contact. Home has hero, features, testimonials, CTA. Contact form
+saves to Supabase. Premium dark theme. Deploy it and give me the link.
 ```
 
 ---
 
-## 14. Common Gotchas
+## 15. Common Problems & Fixes
 
-### "use client" Errors
-```
-Fix: Add "use client" at the TOP of the file (first line)
-```
+### "use client" errors
+Add `"use client"` as the FIRST line of the file.
 
-### Three.js Blank Canvas
-```
-Fix: 1. Container needs w-full h-[450px]
-     2. Wrap in Suspense
-     3. File needs "use client"
-```
+### 3D canvas blank
+Container needs height (`h-[450px]`) + `<Suspense>` + `'use client'`.
 
-### Tailwind Not Working
-```
-Fix: Check globals.css imports and @theme block
-Check: postcss.config.mjs has @tailwindcss/postcss
-```
+### Tailwind classes not working
+Rebuild/restart dev server. Check `globals.css` imports `@import "tailwindcss"`.
 
-### Shadcn Not Found
-```
-Fix: npx shadcn@latest add <component>
-Check: components.json aliases match paths
-```
+### Form not submitting
+Check the API route path and `action` attr. Open DevTools console for errors. Query `console: errors` via Chrome DevTools MCP.
 
-### Build Fails
-```
-Fix: 1. Check missing "use client"
-     2. Check fetch error handling
-     3. Run npm run lint
-     4. await params (Next.js 16)
-```
+### Env vars missing after deploy
+Add them in Vercel dashboard (Settings → Environment Variables). Restart.
 
-### Env Vars Not Loading
-```
-Fix: 1. NEXT_PUBLIC_ prefix for client-side
-     2. Restart dev server after adding
-     3. Use .env.local not .env
-     4. Check Vercel dashboard for prod
-```
+### Build fails
+Run `npm run lint` first. Check for missing `"use client"` and un-awaited `params`.
 
-### Image Broken
-```
-Fix: Use next/image with width/height
-For remote: add domain to next.config.ts
-```
+### Images broken
+Use `next/image` with `width`/`height`. Remote images need domain allow-list in `next.config.ts`.
 
-### CORS Errors
-```
-Fix: Use Next.js API routes (same origin)
-Or set Access-Control-Allow-Origin header
-```
+### Page slow
+Ask opencode: *"Check performance with Chrome DevTools and optimize"* — images, lazy loading, bundle size.
 
 ---
 
-## 15. Quick Reference
-
-### Commands
-```bash
-npm run dev              # Dev server
-npm run build            # Production build
-npm run lint             # Check errors
-npx shadcn@latest add X  # Add component
-npx prisma db push       # Push schema
-npx prisma studio        # DB visual editor
-vercel                   # Deploy
-vercel --prod            # Production deploy
-```
+## 16. Quick Reference Card
 
 ### Color Palette
 ```
-Background: bg-zinc-950
-Card: bg-zinc-900
-Border: border-zinc-800
-Text: text-zinc-100
-Muted: text-zinc-400
-Accent: violet-500/600
-Success: emerald-500
-Warning: amber-500
-Error: red-500
+Background:  bg-zinc-950   Cards:  bg-zinc-900
+Border:      border-zinc-800  Text:  text-zinc-100
+Muted:       text-zinc-400    Accent: violet-500/600
+Success:     emerald-500   Warning: amber-500   Error: red-500
 ```
 
 ### Spacing
 ```
-px-2 py-1    - Badges
-px-4 py-2    - Buttons
-px-6 py-3    - Cards
-px-8 py-6    - Sections
-gap-2/4/6/8  - Grid gaps
-max-w-7xl    - Page width
+px-2 py-1   badges    |  px-4 py-2  buttons    |  px-6 py-3  cards
+px-8 py-6   sections  |  gap-2/4/6/8  grid gaps |  max-w-7xl  page width
 ```
 
-### Useful Links
-- [Next.js Docs](https://nextjs.org/docs)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Shadcn UI](https://ui.shadcn.com)
-- [Framer Motion](https://motion.dev)
-- [Three.js](https://threejs.org)
-- [R3F Docs](https://r3f.docs.pmnd.rs)
-- [Supabase](https://supabase.com)
-- [Vercel](https://vercel.com)
+### Everything Happens Via opencode
+Don't memorize code — memorize prompts. When stuck, run:
+- "Add a premium hero section"
+- "Make it look like [URL]"
+- "Fix the mobile layout"
+- "Connect this form to Supabase"
+- "Deploy it"
+- "Polish everything to look expensive"
+
+---
+
+### 🎒 Use this pocket. Ship great sites. Make that money. 💪
+
+*Built as the Doraemon magic pocket backup — stack, skills, and prompts all in one place.*
