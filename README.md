@@ -266,6 +266,43 @@ Skills live in `~/.config/opencode/skills/`. They **auto-trigger** when you ment
 
 ---
 
+### rive-animation
+> Premium flat-vector animations rendered on WebGL canvas — smooth like 3D, virtually zero bundle cost. Paired with Lenis smooth scroll for scroll-driven effects (learned from landonorris.com).
+
+| Trigger Keywords |
+|-----------------|
+| `rive` |
+| `animated vector` |
+| `3d without three` |
+| `micro-interaction` |
+| `motion graphic` |
+
+**Example prompts:**
+- "Make it look like a 3D model with Rive"
+- "Add a scroll-driven animated hero like landonorris.com"
+- "Give the button a subtle Rive hover animation"
+
+---
+
+### 5th-row
+> The meta-skill for THIS project — the standard stack, hardened patterns (proxy not middleware, rate-limit headers, error pages, no type assertions, Supabase guards), and the client-site build workflow.
+
+| Trigger Keywords |
+|-----------------|
+| `5th_row` |
+| `fifth row` |
+| `toolkit` |
+| `control center` |
+| `/control` |
+| `/toolkit` |
+
+**Example prompts:**
+- "Build a new client site with the 5th_row stack"
+- "Open the control center"
+- "Wire up the toolkit guide"
+
+---
+
 ## 6. The Premium Design Formula
 
 Use this whenever the user wants an expensive-looking site.
@@ -593,9 +630,10 @@ export async function POST(request: Request) {
 import { createClient } from "@/lib/supabase/client";
 const supabase = createClient();
 
-// INSERT
-await supabase.from("contacts").insert({ name, email, message }).select().single();
-// SELECT
+// INSERT — public/anonymous writes. Don't chain .select(): RLS usually blocks
+// anonymous reads, so return=minimal is correct for public forms.
+const { error } = await supabase.from("contacts").insert({ name, email, message });
+// SELECT — only works for authenticated users (or via the server client).
 const { data } = await supabase.from("contacts").select("*").order("created_at", { ascending: false });
 // UPDATE
 await supabase.from("users").update({ name: "New" }).eq("id", id);

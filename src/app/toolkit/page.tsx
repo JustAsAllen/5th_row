@@ -61,13 +61,15 @@ export default function ToolkitPage() {
 
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-5">
-                <div className="mb-3 text-sm font-semibold text-white">5 Skills Auto-Trigger</div>
+                <div className="mb-3 text-sm font-semibold text-white">7 Skills Auto-Trigger</div>
                 <ul className="space-y-2 text-sm text-zinc-400">
                   <li>• <span className="text-zinc-300">website-cloner</span> — rebuild any site</li>
                   <li>• <span className="text-zinc-300">ui-ux-premium</span> — expensive look</li>
                   <li>• <span className="text-zinc-300">client-project</span> — get paid</li>
                   <li>• <span className="text-zinc-300">responsive-testing</span> — every screen</li>
                   <li>• <span className="text-zinc-300">supabase-backend</span> — build backend</li>
+                  <li>• <span className="text-zinc-300">rive-animation</span> — Rive 3D motion</li>
+                  <li>• <span className="text-zinc-300">5th-row</span> — the toolkit stack</li>
                 </ul>
               </div>
               <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-5">
@@ -351,9 +353,10 @@ export function AuthUI() {
               <CodeBlock code={`import { createClient } from "@/lib/supabase/server";
 const supabase = await createClient();
 
-// INSERT
-await supabase.from("contacts").insert({ name, email, message }).select().single();
-// SELECT
+// INSERT — don't chain .select() on public forms: RLS blocks anonymous reads,
+// so keep inserts with return=minimal for anonymous submissions.
+await supabase.from("contacts").insert({ name, email, message });
+// SELECT — authenticated (or server-side) only, per RLS.
 const { data } = await supabase.from("contacts").select("*").order("created_at", { ascending: false });
 // UPDATE
 await supabase.from("users").update({ name: "New" }).eq("id", id);
@@ -539,6 +542,8 @@ vercel --prod`} />
                 { name: "client-project", icon: Workflow, keywords: ["client","client project","client work","client website","paid work","freelance","deliver to client","requirements"], desc: "Guides the full paid-client workflow" },
                 { name: "responsive-testing", icon: Blocks, keywords: ["mobile responsive","check mobile","responsive","fix mobile","test on phone","mobile view","breakpoints","tablet view","desktop view"], desc: "Screenshots + fixes every screen size" },
                 { name: "supabase-backend", icon: Database, keywords: ["database","backend","supabase","auth","login","signup","realtime","storage","API","tables","rows","postgres","sign in","user accounts","forms data"], desc: "Builds backend features correctly" },
+                { name: "rive-animation", icon: Clapperboard, keywords: ["rive","animated vector","3d without three","micro-interaction","motion graphic"], desc: "Rive WebGL vector '3D' + Lenis smooth scroll" },
+                { name: "5th-row", icon: Zap, keywords: ["5th_row","fifth row","toolkit","control center","/control","/toolkit"], desc: "This project's stack, hardened patterns, and build workflow" },
               ].map((skill) => (
                 <div key={skill.name} className="rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-5">
                   <div className="flex items-center gap-2">
