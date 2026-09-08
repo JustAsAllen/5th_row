@@ -74,6 +74,7 @@ This toolkit must produce hardened sites. Enforce these on every project you bui
 
 ## 7. opencode Skills Available (Global)
 The following skills auto-trigger from `~/.config/opencode/skills/`:
+- `5th-row` — trigger keywords: `5th_row`, `fifth row`, `toolkit`, `control center`, `/control`, `/toolkit`. Captures THIS project's stack, hardened patterns (proxy not middleware, rate-limit headers, error pages, Supabase guards, no type assertions, remote-image allow-list) and the client-site build workflow. Load it before working here.
 - `website-cloner` — triggers: `clone website`, `learn from site`, `make it look like`, `copy design`, `reference website`, `analyze website`, `extract design from [URL]`
 - `ui-ux-premium` — triggers: `make it premium`, `make it look expensive`, `high class`, `goated interface`, `beautiful design`, `amazing UI`, `moon-worthy design`, `upgrade the design`, `luxury look`, `modern aesthetic`, `expensive`, `goated`, `polished`, `premium look`
 - `client-project` — triggers: `client`, `client project`, `client work`, `client website`, `paid work`, `freelance`, `deliver to client`, `requirements`
