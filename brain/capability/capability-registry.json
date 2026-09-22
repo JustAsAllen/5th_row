@@ -1,0 +1,145 @@
+{
+  "$comment": "Opencode capability registry (S1). Source of truth: 5th_row/brain/capability/capability-registry.json. Machine-readable map of tools, MCP servers, skills, and agents used by the task classifier and routers.",
+  "version": "1.0.0",
+  "updated": "2026-09-22",
+  "source": "https://github.com/JustAsAllen/5th_row (brain/capability)",
+
+  "native_tools": {
+    "bash": {
+      "specialty": "terminal / process / npm / git / file mgmt",
+      "good_at": ["run builds, lint, typecheck, tests, git, npm, docker", "run any shell workflow"],
+      "weak_at": ["cross-platform portability", "file content editing (use edit tools)"],
+      "pairs_with": ["read", "edit", "websearch"],
+      "minimal_command": "powershell"
+    },
+    "read": { "specialty": "inspect files/dirs", "good_at": ["code review", "large files with offset/limit"], "pairs_with": ["grep", "glob"] },
+    "edit": { "specialty": "surgical file edits", "good_at": ["exact string replacement", "replaceAll rename"], "weak_at": ["large rewrites (use write)"] },
+    "write": { "specialty": "create/overwrite files", "good_at": ["new files", "templates"], "note": "reads file first before overwrite" },
+    "glob": { "specialty": "find files by pattern", "pairs_with": ["grep", "read"] },
+    "grep": { "specialty": "regex content search", "good_at": ["finding symbol usage", "scanning for secrets patterns"] },
+    "task": { "specialty": "delegate to subagents", "good_at": ["parallelizable research", "isolated multi-step work", "war room"], "pairs_with": ["explore", "general", "custom agents"] },
+    "question": { "specialty": "ask user minimum clarifying questions", "note": "only when ambiguity is task-blocking" },
+    "todowrite": { "specialty": "multi-step task tracking", "note": "use for 3+ distinct steps" },
+    "webfetch": { "specialty": "fetch one URL", "good_at": ["specific docs/pages"] },
+    "websearch": { "specialty": "current-info search", "good_at": ["recent events", "unknown topics"], "note": "prefer context7 for library docs" },
+    "skill": { "specialty": "lazy-load skill workflows" }
+  },
+
+  "mcp_servers": {
+    "context7": {
+      "server": "context7",
+      "type": "remote",
+      "specialty": "up-to-date library/framework docs",
+      "use_when": "implementing with any library/framework, version migration, API syntax",
+      "fallback": "websearch + official docs via webfetch/firecrawl",
+      "cost": "low",
+      "prefer_over": "stale training memory for library APIs"
+    },
+    "firecrawl": {
+      "server": "firecrawl",
+      "type": "local",
+      "specialty": "research + data extraction at scale",
+      "tools": ["search", "scrape", "crawl", "map", "agent", "research_*", "parse"],
+      "use_when": "multi-site research, structured extraction, datasets, page content, PDFs",
+      "fallback": "websearch + webfetch",
+      "cost": "credits",
+      "note": "prefer alexandria provider over scraping same fields across pages"
+    },
+    "filesystem": {
+      "server": "filesystem",
+      "type": "local",
+      "specialty": "file operations outside workspace boundary",
+      "allowed_root": "C:\\Users\\Allen Saji",
+      "use_when": "read/write/media in user dirs (Desktop, Downloads)",
+      "cost": "low"
+    },
+    "chrome-devtools": {
+      "server": "chrome-devtools",
+      "type": "local",
+      "specialty": "browser automation + diagnostics",
+      "tools": ["snapshot", "screenshot", "performance trace", "lighthouse", "network", "console", "heapsnapshot"],
+      "use_when": "visual QA, performance, a11y, console/network errors",
+      "fallback": "playwright / puppeteer",
+      "cost": "medium"
+    },
+    "playwright": {
+      "server": "playwright",
+      "type": "local",
+      "specialty": "browser automation (snapshot-first)",
+      "use_when": "UI interaction tests, form filling, cross-browser",
+      "fallback": "chrome-devtools / puppeteer",
+      "cost": "medium"
+    },
+    "puppeteer": {
+      "server": "puppeteer",
+      "type": "local",
+      "specialty": "browser automation (script-first)",
+      "use_when": "scripted navigation/screenshots",
+      "fallback": "chrome-devtools / playwright",
+      "cost": "medium"
+    }
+  },
+
+  "skills": {
+    "5th-row": { "scope": "5th_row toolkit / client Next.js starter", "trigger": "5th_row, toolkit, /control, /toolkit, control center" },
+    "client-project": { "scope": "paying client work", "trigger": "client, freelance, paid work, deliverables" },
+    "responsive-testing": { "scope": "mobile/tablet/desktop QA", "trigger": "responsive, check mobile, breakpoints" },
+    "rive-animation": { "scope": "animated vector 3D look", "trigger": "rive, .riv, motion graphic, 3d without three" },
+    "supabase-backend": { "scope": "Supabase backend", "trigger": "supabase, auth, database, backend, realtime, storage" },
+    "ui-ux-premium": { "scope": "premium UI", "trigger": "premium, goated, expensive, luxury, polish" },
+    "website-cloner": { "scope": "design inspiration/clone", "trigger": "clone, learn from site, make it look like [URL]" },
+    "core-intelligence": { "scope": "task classification, routing, verification, autonomy", "trigger": "all tasks — or when ambiguous", "always": "loaded on ambiguous or major tasks" },
+    "war-room": { "scope": "multi-agent orchestration", "trigger": "complex/multi-phase features" },
+    "project-intelligence": { "scope": "project DNA, memory, impact", "trigger": "entering a project, large changes, 'remember'" },
+    "quality-engines": { "scope": "verification: debug, red-team, visual QA, perf, security", "trigger": "before declaring anything done" },
+    "design-intelligence": { "scope": "design DNA + presets", "trigger": "design system, presets, visual language" },
+    "workflow-recipes": { "scope": "recipes, test-gen, dependency, docs", "trigger": "recipes, feature ideas, new feature" }
+  },
+
+  "agents": {
+    "explore": { "mode": "built-in subagent", "specialty": "fast codebase search", "use_for": "locating files/symbols, codebase questions" },
+    "general": { "mode": "built-in subagent", "specialty": "general multi-step research/execution", "use_for": "parallelizable work units" },
+    "plan": { "mode": "built-in primary", "specialty": "planning, edit denied" },
+    "build": { "mode": "built-in primary", "specialty": "default implementation" },
+    "architect": { "mode": "subagent", "specialty": "system architecture, ambiguous projects", "weak_against": "tiny syntax fixes" },
+    "frontend": { "mode": "subagent", "specialty": "React/Next/Tailwind/Rive UI", "weak_against": "database architecture" },
+    "backend": { "mode": "subagent", "specialty": "APIs, services, auth flows", "weak_against": "visual design" },
+    "database": { "mode": "subagent", "specialty": "schema, queries, Supabase/Postgres, RLS", "weak_against": "UI polish" },
+    "security": { "mode": "subagent", "specialty": "vulnerabilities, secrets, authz, RLS", "read_only_edit_deny": true },
+    "debugger": { "mode": "subagent", "specialty": "runtime failures, diagnostics", "weak_against": "clean greenfield work" },
+    "researcher": { "mode": "subagent", "specialty": "web/docs/papers, current info", "weak_against": "runtime debugging" },
+    "performance": { "mode": "subagent", "specialty": "bundle, renders, CWV, queries", "read_only_edit_deny": true },
+    "red-team": { "mode": "subagent", "specialty": "adversarial review of features", "read_only_edit_deny": true },
+    "qa": { "mode": "subagent", "specialty": "tests, browser, regression, a11y" },
+    "visual-qa": { "mode": "subagent", "specialty": "screenshots across breakpoints, layout bugs" },
+    "devops": { "mode": "subagent", "specialty": "builds, deploy, env, CI" }
+  },
+
+  "agents_by_job": {
+    "architecture_planning": ["architect"],
+    "ui_work": ["frontend", "visual-qa", "design-intelligence skill"],
+    "backend_api": ["backend"],
+    "database_schema": ["database"],
+    "bug_runtime": ["debugger", "qa"],
+    "research_unknown": ["researcher"],
+    "security_review": ["security", "red-team"],
+    "performance_review": ["performance"],
+    "verification": ["qa", "visual-qa", "red-team"],
+    "deploy_ci": ["devops"]
+  },
+
+  "fallback_routes": {
+    "library_docs": ["context7", "websearch+webfetch", "firecrawl developer search"],
+    "browser_task": ["chrome-devtools", "playwright", "puppeteer"],
+    "web_research": ["firecrawl", "websearch", "webfetch"],
+    "file_work_outside_workspace": ["filesystem"]
+  },
+
+  "capability_gaps": {
+    "notes": [
+      "No persistent vector store — memory is file-based (brain/project/*). Fine for now.",
+      "No plugin hooks enabled — automatic post-tool logging is a future option.",
+      "Browser tests need a live server; visual QA requires the app to run."
+    ]
+  }
+}

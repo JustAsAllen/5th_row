@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local dev logs
 server-log.txt
+
+# opencode brain: config backups may contain secrets - never commit
+/brain/backups/

@@ -11,6 +11,27 @@
 
 ---
 
+### ✦ The Development OS Brain (`brain/`)
+
+This repo is also the **central brain** of opencode's Development OS — the
+capability registry, agent dex, project intelligence, quality engines, design
+presets, automation recipes, mode-commands and workflow skills. Everything
+opencode knows about HOW to work lives here and is committed to the repo.
+
+- **Docs:** start at [`brain/README.md`](brain/README.md) then [`brain/ARCHITECTURE.md`](brain/ARCHITECTURE.md).
+- **Active skills:** `brain/skills/` (core-intelligence, war-room,
+  project-intelligence, quality-engines, design-intelligence, workflow-recipes)
+  registered globally via `skills.paths`.
+- **Live agents + commands:** `brain/live/` → mirror into
+  `~/.config/opencode/{agent,command}` via `node brain/tools/sync.mjs`.
+- **Modes:** `/build` `/goated` `/red-team` `/production-check` `/security-audit`
+  `/performance-audit` `/visual-qa` `/benchmark` `/research` `/experiment` `/recipe`
+
+Home → Landing + Control Center + Toolkit. Brain → the operating system that
+drives them.
+
+---
+
 ## TABLE OF CONTENTS
 
 1. [What Is This?](#1-what-is-this)
