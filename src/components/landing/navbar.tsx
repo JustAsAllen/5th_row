@@ -9,6 +9,7 @@ import { PixGlyph } from "./pix-glyph";
 const NAV_LINKS = [
   { label: "Control Center", href: "/control" },
   { label: "The Guide", href: "/toolkit" },
+  { label: "Brain Sim", href: "/brain" },
   { label: "Zero to Deploy", href: "/#track" },
   { label: "Skills", href: "/#skills" },
 ];

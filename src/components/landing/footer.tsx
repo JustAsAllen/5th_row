@@ -66,6 +66,9 @@ export function Footer() {
             <Link href="/toolkit" className="text-sm text-[#7D7D7D] transition-colors hover:text-[#F2F2F2]">
               The Guide
             </Link>
+            <Link href="/brain" className="text-sm text-[#7D7D7D] transition-colors hover:text-[#F2F2F2]">
+              Brain Sim
+            </Link>
             <a
               href="https://github.com/JustAsAllen/5th_row"
               target="_blank"
